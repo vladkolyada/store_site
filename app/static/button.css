@@ -1,17 +1,16 @@
 .btn {
     background: linear-gradient(83.58deg, #CD3838 5.94%, #5FE122 92.74%);
     border-radius: 5px;
-    color: black;
+    color: white;
     text-decoration: none;
     border: 1px solid #000000;
-    position: absolute;
     width: 70px;
     height: 30px;
     font-family: 'Impact';
     font-style: normal;
-    font-size: 15px;
-    line-height: 20px;
-    display: flex;
+    font-size: 20px;
+    line-height: 30px;
+    padding: 0.4em;
     justify-content: center;
     align-items: center;
 }
