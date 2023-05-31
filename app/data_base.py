@@ -9,12 +9,19 @@ from app.loader import app
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
+#registeradmin(базаданых)
+class Admin(UserMixin, db.Model):
+    password = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(60), index=True, unique=True, nullable=False)
+
 
 class Products(db.Model):
     product_id = db.Column(db.Integer, primary_key=True)
     product_image_name = db.Column(db.String(10), unique=True)
     product_title = db.Column(db.String(150), unique=True)
     product_price = db.Column(db.Integer, nullable=False)
+
+
 
 
 class Laptops(db.Model):
