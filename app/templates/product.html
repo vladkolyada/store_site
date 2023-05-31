@@ -35,6 +35,19 @@
     <div class="btn-container">
         <img src="/static/{{ product.product_image_name }}.webp"><br>
         <p>{{ product.product_title }}</p>
-        <p> {{ product.product_price }} грн <a class="btn" href="/buy/{{ product.product_name }}">Купити</a> </p>
+        <p> {{ product.product_price }} грн       <a class="btn" href="/buy/{{ product.product_name }}">Купити</a> </p>
     </div>
+    <hr>
+
+    <div class="btn-container">
+        <p> Характеристики процесора: {{ product_specs.processor_specifications }} </p>
+        <p> Характеристики об'єма пам'яті: {{ product_specs.memory_capacity_specifications }} </p>
+        <p> Характеристики дисплея: {{ product_specs.display_characteristics }} </p>
+        <p> Характеристики оперативної пам'яті: {{ product_specs.ram_specifications }} </p>
+        <p> Кількість слотів оперативної пам'яті: {{ product_specs.number_of_ram_slots }} </p>
+        <p> Характеристики відеокарти: {{ product_specs.graphics_card_specifications }} </p>
+        <p> Характеристики чипа материнської плати: {{ product_specs.motherboard_chip_specifications }} </p>
+        <p> Інші характеристики материнської плати: {{ product_specs.other_motherboard_specs }} </p>
+    </div>
+
 {% endblock %}
