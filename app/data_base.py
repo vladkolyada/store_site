@@ -20,3 +20,11 @@ class Products(db.Model):
 class Laptops(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     foreign_key = db.Column(db.Integer, db.ForeignKey('products.product_id'))
+    processor_specifications = db.Column(db.String(150))
+    memory_capacity_specifications = db.Column(db.String(250))
+    display_characteristics = db.Column(db.String(200))
+    ram_specifications = db.Column(db.String(200))
+    number_of_ram_slots = db.Column(db.Integer)
+    graphics_card_specifications = db.Column(db.String(250))
+    motherboard_chip_specifications = db.Column(db.String(150))
+    other_motherboard_specs = db.Column(db.String(500))
