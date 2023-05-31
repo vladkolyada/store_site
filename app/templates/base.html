@@ -8,11 +8,29 @@
         <title>Basic Title</title>
     {% endif %}
     <link href="static/button.css" rel="stylesheet" type="text/css">
+    <style>
+        .basket-link {
+            position: absolute;
+            left: 1850px; /* Изменение 1: Добавить значение для отступа слева */
+            top: 10px; /* Изменение 2: Добавить значение для отступа сверху */
+        }
+    </style>
 </head>
 <body>
     <div>
         <a href="/log_in" class="btn">Увійти</a>
         <a href="/sign_up" class="btn">Зареєструватися</a>
+        <a href="/basket" class="basket-link">
+            <svg width="30" height="27" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17 3L11.5 3L6 3" stroke="black"/>
+                <path d="M16.5 3.5V9" stroke="black"/>
+                <path d="M17 9.5L4.5 9.5" stroke="black"/>
+                <path d="M3.4922 0.912018L5 9.5" stroke="black"/>
+                <path d="M9 12.5C9 13.3284 8.32843 14 7.5 14C6.67157 14 6 13.3284 6 12.5C6 11.6716 6.67157 11 7.5 11C8.32843 11 9 11.6716 9 12.5Z" fill="black"/>
+                <path d="M16 12.5C16 13.3284 15.3284 14 14.5 14C13.6716 14 13 13.3284 13 12.5C13 11.6716 13.6716 11 14.5 11C15.3284 11 16 11.6716 16 12.5Z" fill="black"/>
+                <line x1="4" y1="0.5" y2="0.5" stroke="black"/>
+            </svg>
+        </a>
         <hr>
     </div>
     {% block content %}  {% endblock %}
