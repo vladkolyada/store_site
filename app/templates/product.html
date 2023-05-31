@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
     <style>
         .btn {
             background: linear-gradient(83.58deg, #CD3838 5.94%, #5FE122 92.74%);
@@ -27,27 +28,33 @@
             font-family: caviar-dreams; /* Гарнитура шрифта */
             src: url(/static/caviar-dreams.ttf); /* Путь к файлу со шрифтом */
         }
-        p {
+
+        .p_title {
             font-family: caviar-dreams;
             font-size: 30px;
+        }
+
+        .p_specs {
+            font-family: caviar-dreams;
+            font-size: 23px;
         }
     </style>
     <div class="btn-container">
         <img src="/static/{{ product.product_image_name }}.webp"><br>
-        <p>{{ product.product_title }}</p>
-        <p> {{ product.product_price }} грн       <a class="btn" href="/buy/{{ product.product_name }}">Купити</a> </p>
+        <p class="p_title">{{ product.product_title }}</p>
+        <p class="p_title"> {{ product.product_price }} грн       <a class="btn" href="/buy/{{ product.product_name }}">Купити</a> </p>
     </div>
     <hr>
 
     <div class="btn-container">
-        <p> Характеристики процесора: {{ product_specs.processor_specifications }} </p>
-        <p> Характеристики об'єма пам'яті: {{ product_specs.memory_capacity_specifications }} </p>
-        <p> Характеристики дисплея: {{ product_specs.display_characteristics }} </p>
-        <p> Характеристики оперативної пам'яті: {{ product_specs.ram_specifications }} </p>
-        <p> Кількість слотів оперативної пам'яті: {{ product_specs.number_of_ram_slots }} </p>
-        <p> Характеристики відеокарти: {{ product_specs.graphics_card_specifications }} </p>
-        <p> Характеристики чипа материнської плати: {{ product_specs.motherboard_chip_specifications }} </p>
-        <p> Інші характеристики материнської плати: {{ product_specs.other_motherboard_specs }} </p>
+        <p class="p_specs"> Характеристики процесора: {{ product_specs.processor_specifications }} </p>
+        <p class="p_specs"> Характеристики об'єма пам'яті: {{ product_specs.memory_capacity_specifications }} </p>
+        <p class="p_specs"> Характеристики дисплея: {{ product_specs.display_characteristics }} </p>
+        <p class="p_specs"> Характеристики оперативної пам'яті: {{ product_specs.ram_specifications }} </p>
+        <p class="p_specs"> Кількість слотів оперативної пам'яті: {{ product_specs.number_of_ram_slots }} </p>
+        <p class="p_specs"> Характеристики відеокарти: {{ product_specs.graphics_card_specifications }} </p>
+        <p class="p_specs"> Характеристики чипа материнської плати: {{ product_specs.motherboard_chip_specifications }} </p>
+        <p class="p_specs"> Інші характеристики материнської плати: {{ product_specs.other_motherboard_specs }} </p>
     </div>
 
 {% endblock %}
