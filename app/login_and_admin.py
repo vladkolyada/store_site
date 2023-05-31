@@ -6,12 +6,11 @@ from app.data_base import Admin
 from app.loader import app
 
 
-
-
 @app.route('/signup')
 def signup():
     form=RegistrationForm()
     return render_template('sign up.html', form=form)
+
 
 @app.route('/login1', methods=['GET', 'POST'])
 def log_in1():
