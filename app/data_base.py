@@ -1,7 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import LoginManager, UserMixin
+from flask_login import UserMixin
 
 from app.loader import app
 
@@ -10,10 +9,10 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 
-class Admin(UserMixin, db.Model):
-    password = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(60), index=True, unique=True, nullable=False)
-    email = db.Column(db.String(100), nullable=False)
+class AdminUsers(UserMixin, db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_name = db.Column(db.String(25), nullable=False, unique=True)
+    password = db.Column(db.String(30), nullable=False)
 
 
 class Products(db.Model):
