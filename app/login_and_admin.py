@@ -6,21 +6,21 @@ from app.data_base import Admin
 from app.loader import app
 
 
-@app.route('/signup')
+@app.route('/sign_up')
 def signup():
-    form=RegistrationForm()
-    return render_template('sign up.html', form=form)
+    form = RegistrationForm()
+    return render_template('sign_up.html', form=form)
 
 
-@app.route('/login1', methods=['GET', 'POST'])
-def log_in1():
+@app.route('/log_in', methods=['GET', 'POST'])
+def log_in():
     form = LogIn()
     if form.validate_on_submit():
         username = form.username.data
         password = form.password.data
         user = Admin.query.filter_by(username=username).first()
         if user is None or not user.check_password(password):
-            return redirect('/login1')
+            return redirect('/log_in')
         login_user(user, remember=form.remember_me.data)
         return redirect('/')
     return render_template('registeradmin.html', title='Увійти', form=form)
