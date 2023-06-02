@@ -13,6 +13,7 @@ migrate = Migrate(app, db)
 class Admin(UserMixin, db.Model):
     password = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(60), index=True, unique=True, nullable=False)
+    email = db.Column(db.String(100), nullable=False)
 
 
 class Products(db.Model):
