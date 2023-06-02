@@ -2,6 +2,13 @@
 
 {% block content %}
     <style>
+    .BG {
+        width: 99vw;
+        height: 90vh;
+        background: url("/static/bg_basket.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
     .btn {
         background: linear-gradient(83.58deg, #CD3838 5.94%, #5FE122 92.74%);
         border-radius: 5px;
@@ -29,11 +36,13 @@
             text-decoration: none;
         }
     </style>
-    {% if basket %}
-        {% for i in basket %}
-            <h3 class="p_title"> <a href="/product/{{ i }}" class="p_title">{{ i }}</a> <a class="btn" href="/delete/{{ i }}">Delete</a> </h3>
-        {% endfor %}
-    {% else %}
-        <h3 class="p_title"> Кошик пустий </h3>
-    {% endif %}
+    <div class="BG">
+        {% if basket %}
+            {% for i in basket %}
+                <h3 class="p_title"> <a href="/product/{{ i }}" class="p_title">{{ i }}</a> <a class="btn" href="/delete/{{ i }}">Delete</a> </h3>
+            {% endfor %}
+        {% else %}
+            <h3 class="p_title"> Кошик пустий </h3>
+        {% endif %}
+    </div>
 {% endblock %}
