@@ -2,7 +2,7 @@ from flask import Flask, render_template,redirect,url_for
 from .forms import LogIn,RegistrationForm
 
 from flask_login import LoginManager, UserMixin, current_user, login_user, logout_user, login_required
-from app.data_base import Admin
+from app.data_base import AdminUsers
 from app.loader import app
 
 
@@ -12,13 +12,13 @@ def signup():
     return render_template('sign_up.html', form=form)
 
 
-@app.route('/log_in', methods=['GET', 'POST'])
+@app.route('/log_in_for_admins', methods=['GET', 'POST'])
 def log_in():
     form = LogIn()
     if form.validate_on_submit():
         username = form.username.data
         password = form.password.data
-        user = Admin.query.filter_by(username=username).first()
+        user = AdminUsers.query.filter_by(username=username).first()
         if user is None or not user.check_password(password):
             return redirect('/log_in')
         login_user(user, remember=form.remember_me.data)
