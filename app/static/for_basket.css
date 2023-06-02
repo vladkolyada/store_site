@@ -4,23 +4,6 @@
         background: url("/static/bg_basket.png");
         background-repeat: no-repeat;
         background-size: cover;
-    }
-.btn {
-        background: linear-gradient(83.58deg, #CD3838 5.94%, #5FE122 92.74%);
-        border-radius: 5px;
-        color: white;
-        text-decoration: none;
-        border: 1px solid #000000;
-        width: 70px;
-        height: 30px;
-        font-family: 'Impact';
-        font-style: normal;
-        font-size: 20px;
-        line-height: 30px;
-        padding: 0.4em;
-        justify-content: center;
-        align-items: center;
-    }
 @font-face {
             font-family: caviar-dreams; /* Гарнитура шрифта */
             src: url(/static/caviar-dreams.ttf); /* Путь к файлу со шрифтом */
