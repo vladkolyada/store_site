@@ -18,6 +18,8 @@ class Admin(UserMixin, db.Model):
 class Products(db.Model):
     product_id = db.Column(db.Integer, primary_key=True)
     product_image_name = db.Column(db.String(10), unique=True)
+    product_type = db.Column(db.String(20))
+    # тут повинні бути, тільки такі слова як: Laptop, PC, Phone, Tablet, Keyboard, Mouse, Headphones. Більше ніякі!
     product_title = db.Column(db.String(150), unique=True)
     product_price = db.Column(db.Integer, nullable=False)
 
@@ -31,5 +33,3 @@ class Laptops(db.Model):
     ram_specifications = db.Column(db.String(200))
     number_of_ram_slots = db.Column(db.Integer)
     graphics_card_specifications = db.Column(db.String(250))
-    motherboard_chip_specifications = db.Column(db.String(150))
-    other_motherboard_specs = db.Column(db.String(500))
