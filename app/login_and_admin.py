@@ -2,8 +2,7 @@ from flask import Flask, render_template, redirect, url_for, flash
 
 from . import forms
 from .forms import LogInAdmin, RegistrationForm, LoginUser
-from flask_login import LoginManager, UserMixin, current_user, login_user, logout_user, login_required
-from flask_login import LoginManager, UserMixin, current_user, login_user, logout_user, login_required
+from flask_login import LoginManager, current_user, login_user, logout_user, login_required
 from app.data_base import AdminUsers, Users, db
 from app.loader import app
 
@@ -58,6 +57,7 @@ def log_in():
     return render_template('log_in.html', form=form)
 
 
+@login_required
 @app.route('/log_in_for_admins', methods=['GET', 'POST'])
 def log_in_admin():
     form = LogInAdmin()
