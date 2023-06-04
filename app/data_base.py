@@ -11,7 +11,8 @@ migrate = Migrate(app, db)
 
 #registeradmin(базаданых)
 class Admin(UserMixin, db.Model):
-    password = db.Column(db.Integer, primary_key=True)
+    id=db.Column(db.Integer, primary_key=True)
+    password = db.Column(db.String(60),index=True, unique=True, nullable=False)
     username = db.Column(db.String(60), index=True, unique=True, nullable=False)
 
 
