@@ -8,11 +8,47 @@
         <title>Basic Title</title>
     {% endif %}
     <link href="static/button.css" rel="stylesheet" type="text/css">
+    <link href="static/background.css" rel="stylesheet" type="text/css">
+    <link href="static/for_basket.css" rel="stylesheet" type="text/css">
+    <link href="static/for_catalog.css" rel="stylesheet" type="text/css">
+    <link href="static/for_product.css" rel="stylesheet" type="text/css">
+    <style>
+        .basket-link {
+            position: absolute;
+            left: 1850px; /* Изменение 1: Добавить значение для отступа слева */
+            top: 10px; /* Изменение 2: Добавить значение для отступа сверху */
+        }
+        .home-link {
+            position: absolute;
+            left: 900px; /* Изменение 1: Добавить значение для отступа слева */
+            top: 8px; /* Изменение 2: Добавить значение для отступа сверху */
+        }
+    </style>
 </head>
 <body>
     <div>
         <a href="/log_in" class="btn">Увійти</a>
         <a href="/sign_up" class="btn">Зареєструватися</a>
+        <a href="/basket" class="basket-link">
+            <svg width="30" height="27" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17 3L11.5 3L6 3" stroke="black"/>
+                <path d="M16.5 3.5V9" stroke="black"/>
+                <path d="M17 9.5L4.5 9.5" stroke="black"/>
+                <path d="M3.4922 0.912018L5 9.5" stroke="black"/>
+                <path d="M9 12.5C9 13.3284 8.32843 14 7.5 14C6.67157 14 6 13.3284 6 12.5C6 11.6716 6.67157 11 7.5 11C8.32843 11 9 11.6716 9 12.5Z" fill="black"/>
+                <path d="M16 12.5C16 13.3284 15.3284 14 14.5 14C13.6716 14 13 13.3284 13 12.5C13 11.6716 13.6716 11 14.5 11C15.3284 11 16 11.6716 16 12.5Z" fill="black"/>
+                <line x1="4" y1="0.5" y2="0.5" stroke="black"/>
+            </svg>
+        </a>
+        <a href="/" class="home-link">
+            <svg width="55" height="30" viewBox="0 0 265 186" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="58" y="86" width="150" height="100" rx="7" fill="black"/>
+                <rect x="98" y="107" width="70" height="50" rx="7" fill="yellow"/>
+                <path d="M128.294 3.16134C130.785 1.28877 134.215 1.28877 136.706 3.16133L230.491 73.6544C235.865 77.6941 233.008 86.25 226.285 86.25H38.7149C31.9915 86.25 29.1346 77.6941 34.509 73.6544L128.294 3.16134Z" fill="black"/>
+                <rect x="130" y="107" width="6" height="50" fill="black"/>
+                <rect x="98" y="129" width="70" height="6" fill="black"/>
+            </svg>
+        </a>
         <hr>
     </div>
     {% block content %}  {% endblock %}

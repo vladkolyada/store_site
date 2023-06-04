@@ -3,23 +3,6 @@
 {% block content %}
 
     <style>
-        .btn {
-            background: linear-gradient(83.58deg, #CD3838 5.94%, #5FE122 92.74%);
-            border-radius: 5px;
-            color: white;
-            text-decoration: none;
-            border: 1px solid #000000;
-            width: 70px;
-            height: 30px;
-            font-family: 'Impact';
-            font-style: normal;
-            font-size: 20px;
-            line-height: 30px;
-            padding: 0.4em;
-            justify-content: center;
-            align-items: center;
-        }
-
         .btn-container {
             text-align: center;
         }
@@ -42,7 +25,7 @@
     <div class="btn-container">
         <img src="/static/{{ product.product_image_name }}.webp"><br>
         <p class="p_title">{{ product.product_title }}</p>
-        <p class="p_title"> {{ product.product_price }} грн       <a class="btn" href="/buy/{{ product.product_name }}">Купити</a> </p>
+        <p class="p_title"> {{ product.product_price }} грн  <a class="btn" href="/buy/{{ product.product_title }}">Купити</a> </p>
     </div>
     <hr>
 
@@ -53,8 +36,6 @@
         <p class="p_specs"> Характеристики оперативної пам'яті: {{ product_specs.ram_specifications }} </p>
         <p class="p_specs"> Кількість слотів оперативної пам'яті: {{ product_specs.number_of_ram_slots }} </p>
         <p class="p_specs"> Характеристики відеокарти: {{ product_specs.graphics_card_specifications }} </p>
-        <p class="p_specs"> Характеристики чипа материнської плати: {{ product_specs.motherboard_chip_specifications }} </p>
-        <p class="p_specs"> Інші характеристики материнської плати: {{ product_specs.other_motherboard_specs }} </p>
     </div>
 
 {% endblock %}

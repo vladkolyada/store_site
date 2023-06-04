@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <style>
+    @font-face {
+            font-family: caviar-dreams; /* Гарнитура шрифта */
+            src: url(/static/caviar-dreams.ttf); /* Путь к файлу со шрифтом */
+        }
+
+    .p_title {
+            font-family: caviar-dreams;
+            font-size: 30px;
+            text-decoration: none;
+        }
+    </style>
+    <div class="BG">
+        {% if basket %}
+            {% for i in basket %}
+                <h3 class="p_title"> <a href="/product/{{ i }}" class="p_title">{{ i }}</a> <a class="btn" href="/delete/{{ i }}">Delete</a> </h3>
+            {% endfor %}
+        {% else %}
+            <h3 class="p_title"> Кошик пустий </h3>
+        {% endif %}
+    </div>
+{% endblock %}
