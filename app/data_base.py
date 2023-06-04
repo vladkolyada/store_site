@@ -9,6 +9,13 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 
+class Users(UserMixin, db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_name = db.Column(db.String(25), unique=True, nullable=False)
+    email = db.Column(db.String, unique=True, nullable=False)
+    password = db.Column(db.String, nullable=False)
+
+
 class AdminUsers(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_name = db.Column(db.String(25), nullable=False, unique=True)
@@ -33,3 +40,6 @@ class Laptops(db.Model):
     ram_specifications = db.Column(db.String(200))
     number_of_ram_slots = db.Column(db.Integer)
     graphics_card_specifications = db.Column(db.String(250))
+
+
+
