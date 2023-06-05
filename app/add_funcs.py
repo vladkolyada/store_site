@@ -1,15 +1,12 @@
 from app.loader import app
 from flask import render_template, flash, redirect, url_for
-from data_base import Products, Laptops, db
-
-laptops = []
+from .data_base import Products, Laptops, db
 
 
-def add_laptop(product_image_name: int, product_type: str, product_title: str,
+def add_laptop(product_image_name: str, product_type: str, product_title: str,
                product_price: int, processor_specifications: str, memory_capacity_specifications: str,
                display_characteristics: str, ram_specifications: str, number_of_ram_slots: int,
                graphics_card_specifications: str):
-    global laptops
     laptop_product = Products(product_title=product_title, product_type=product_type,
                               product_image_name=product_image_name, product_price=product_price)
     laptop_specs = Laptops(foreign_key=laptop_product.product_id,
@@ -22,5 +19,4 @@ def add_laptop(product_image_name: int, product_type: str, product_title: str,
     db.session.add(laptop_product)
     db.session.add(laptop_specs)
     db.session.commit()
-    laptops.append([product_title, product_price, product_image_name])
 

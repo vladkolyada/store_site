@@ -5,7 +5,7 @@ from app.data_base import AdminUsers, Users, db
 from app.loader import app
 
 login = LoginManager(app)
-login.login_view = "login"
+login.login_view = "log_in"
 
 
 @login.user_loader
@@ -21,7 +21,7 @@ def load_user(id):
 @app.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('index'))
+    return redirect('/')
 
 
 @app.route('/sign_up', methods=['GET', 'POST'])
@@ -40,7 +40,7 @@ def signup():
     return render_template('sign_up.html', form=form)
 
 
-@app.route('/log_in', methods=['GET','POST'])
+@app.route('/log_in', methods=['GET', 'POST'])
 def log_in():
     form = LoginUser()
     if current_user.is_authenticated:

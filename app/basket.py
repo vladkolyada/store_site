@@ -9,7 +9,7 @@ basket = []
 def add_to_basket(product_name):
     global basket
     basket.append(product_name)
-    return redirect('/product/<product_name>')
+    return redirect(f'/product/{product_name}')
 
 
 @app.route('/basket')

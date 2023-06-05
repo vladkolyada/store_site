@@ -1,3 +1,14 @@
+@font-face {
+            font-family: caviar-dreams; /* Гарнитура шрифта */
+            src: url(/static/caviar-dreams.ttf); /* Путь к файлу со шрифтом */
+        }
+
+.p_title {
+            font-family: caviar-dreams;
+            font-size: 30px;
+            text-decoration: none;
+        }
+
 .p_specs {
             font-family: caviar-dreams;
             font-size: 23px;

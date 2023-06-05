@@ -1,0 +1,90 @@
+.filter {
+          /* Стили для фильтра товаров */
+}
+
+@font-face {
+            font-family: caviar-dreams; /* Гарнитура шрифта */
+            src: url(/static/caviar-dreams.ttf); /* Путь к файлу со шрифтом */
+}
+
+.product-container {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.product {
+    display: inline-block;
+    height: auto;
+    min-height: 200px;
+    width: calc(25% - 20px);
+    overflow: visible;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.product img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+}
+
+.product h3 {
+    font-family: caviar-dreams;
+    margin-top: 0;
+}
+
+.product .description {
+    font-family: caviar-dreams;
+    font-size: 18px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+.product .price {
+    font-family: caviar-dreams;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.product:hover img {
+    transform: scale(1.1);
+}
+
+/* Медиа-запросы для адаптивного масштабирования плиток */
+@media screen and (max-width: 1200px) {
+    .product {
+        width: calc(33.33% - 20px);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .product {
+            width: calc(50% - 20px);
+          }
+}
+
+@media screen and (max-width: 600px) {
+    .product {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .product {
+        width: 100%;
+    }
+}

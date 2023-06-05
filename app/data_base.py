@@ -29,7 +29,6 @@ class Users(UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
 
 
-
 class AdminUsers(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_name = db.Column(db.String(25), nullable=False, unique=True)
@@ -38,10 +37,11 @@ class AdminUsers(UserMixin, db.Model):
 
 class Products(db.Model):
     product_id = db.Column(db.Integer, primary_key=True)
-    product_image_name = db.Column(db.String(10), unique=True)
-    product_type = db.Column(db.String(20))
+    product_image_name = db.Column(db.String(65), unique=True, index=True)
+    product_type = db.Column(db.String(20), index=True)
     # тут повинні бути, тільки такі слова як: Laptop, PC, Phone, Tablet, Keyboard, Mouse, Headphones. Більше ніякі!
-    product_title = db.Column(db.String(150), unique=True)
+    product_title = db.Column(db.String(150), unique=True, index=True)
+    product_description = db.Column(db.String(450), index=True)
     product_price = db.Column(db.Integer, nullable=False)
 
 
