@@ -55,7 +55,6 @@ def log_in():
     return render_template('log_in.html', form=form)
 
 
-@login_required
 @app.route('/log_in_for_admins', methods=['GET', 'POST'])
 def log_in_admin():
     form = LogInAdmin()
