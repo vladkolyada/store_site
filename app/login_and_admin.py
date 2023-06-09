@@ -1,12 +1,11 @@
 from flask import render_template, redirect, url_for, flash
-from .forms import LogInAdmin, RegistrationForm, LoginUser
+from .forms import LogInAdmin, RegistrationForm, LoginUser,AddProductlaptop
 from flask_login import LoginManager, current_user, login_user, logout_user, login_required
 from app.data_base import AdminUsers, Users, db
 from app.loader import app
 
 login = LoginManager(app)
 login.login_view = "log_in"
-
 
 @login.user_loader
 def load_user(id):
@@ -40,6 +39,15 @@ def signup():
     return render_template('sign_up.html', form=form)
 
 
+#add laptope
+@app.route('/add_product', methods=['GET', 'POST'])
+def addproductlaptop():
+    form=AddProductlaptop()
+    return render_template('addproduct.html', form=form)
+
+
+
+
 @app.route('/log_in', methods=['GET', 'POST'])
 def log_in():
     form = LoginUser()
@@ -55,7 +63,7 @@ def log_in():
     return render_template('log_in.html', form=form)
 
 
-@login_required
+
 @app.route('/log_in_for_admins', methods=['GET', 'POST'])
 def log_in_admin():
     form = LogInAdmin()
@@ -64,7 +72,7 @@ def log_in_admin():
         password = form.password.data
         user = AdminUsers.query.filter_by(username=username).first()
         if user is None or not user.check_password(password):
-            return redirect('/log_in')
+            return redirect('/log_in_for_admins')
         login_user(user, remember=form.remember_me.data)
-        return redirect('/')
+        return redirect('/add_product')
     return render_template('registeradmin.html', title='Увійти', form=form)

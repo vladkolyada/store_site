@@ -9,6 +9,14 @@ class LogInAdmin(FlaskForm):
     remember_me = BooleanField('Remember?')
     submit = SubmitField('Enter')
 
+class AddProductlaptop(FlaskForm):
+    product_image_name=StringField('Імя_зображення_продукту',validators =[DataRequired()])
+    product_type=StringField('Тип_продукту',validators =[DataRequired()])
+    product_title=StringField('Назва_продукту',validators =[DataRequired()])
+    product_description=StringField('Опис_продукту',validators =[DataRequired()])
+    product_price=StringField('Ціна_товару',validators =[DataRequired()])
+    submit = SubmitField('Enter')
+
 class LoginUser(FlaskForm):
     password=PasswordField('password',validators =[DataRequired()])
     username=StringField('name',validators =[DataRequired()])
