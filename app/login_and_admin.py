@@ -1,11 +1,12 @@
 from flask import render_template, redirect, url_for, flash
-from .forms import LogInAdmin, RegistrationForm, LoginUser,AddProductlaptop
+from .forms import LogInAdmin, RegistrationForm, LoginUser,AddProductLaptop
 from flask_login import LoginManager, current_user, login_user, logout_user, login_required
 from app.data_base import AdminUsers, Users, db
 from app.loader import app
 
 login = LoginManager(app)
 login.login_view = "log_in"
+
 
 @login.user_loader
 def load_user(id):
@@ -39,13 +40,11 @@ def signup():
     return render_template('sign_up.html', form=form)
 
 
-#add laptope
+# add laptop
 @app.route('/add_product', methods=['GET', 'POST'])
-def addproductlaptop():
-    form=AddProductlaptop()
+def add_product_laptop():
+    form = AddProductLaptop()
     return render_template('addproduct.html', form=form)
-
-
 
 
 @app.route('/log_in', methods=['GET', 'POST'])
@@ -61,7 +60,6 @@ def log_in():
         login_user(user, remember=form.remember_me.data)
         return redirect('/')
     return render_template('log_in.html', form=form)
-
 
 
 @app.route('/log_in_for_admins', methods=['GET', 'POST'])
