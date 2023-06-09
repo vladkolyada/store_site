@@ -45,7 +45,7 @@
     <div class="product-container">
         {% for laptop in laptops %}
                 <div class="product">
-                    <a href="/product/{{ laptop.product_title }}">
+                    <a href="/product/{{ laptop.product_id }}">
                         <img src="/static/{{ laptop.product_image_name }}" alt="{{ laptop.product_image_name }}">
                         <h3 class="p_title">{{ laptop.product_title }}</h3>
                         <p class="description">{{ laptop.product_description }}</p>

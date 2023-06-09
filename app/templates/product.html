@@ -15,12 +15,14 @@
     <hr>
 
     <div class="btn-container">
-        <p class="p_specs"> Характеристики процесора: {{ product_specs.processor_specifications }} </p>
-        <p class="p_specs"> Характеристики об'єма пам'яті: {{ product_specs.memory_capacity_specifications }} </p>
-        <p class="p_specs"> Характеристики дисплея: {{ product_specs.display_characteristics }} </p>
-        <p class="p_specs"> Характеристики оперативної пам'яті: {{ product_specs.ram_specifications }} </p>
-        <p class="p_specs"> Кількість слотів оперативної пам'яті: {{ product_specs.number_of_ram_slots }} </p>
-        <p class="p_specs"> Характеристики відеокарти: {{ product_specs.graphics_card_specifications }} </p>
+        <p class="p_specs"> Колір: {{ laptop_specs.color }}</p>
+        <p class="p_specs"> Бренд: {{ laptop_specs.brand }}</p>
+        <p class="p_specs"> Характеристики процесора: {{ laptop_specs.processor_specifications }} </p>
+        <p class="p_specs"> Характеристики об'єма пам'яті: {{ laptop_specs.memory_capacity_specifications }} </p>
+        <p class="p_specs"> Характеристики дисплея: {{ laptop_specs.display_characteristics }} </p>
+        <p class="p_specs"> Характеристики оперативної пам'яті: {{ laptop_specs.ram_specifications }} </p>
+        <p class="p_specs"> Кількість слотів оперативної пам'яті: {{ laptop_specs.number_of_ram_slots }} </p>
+        <p class="p_specs"> Характеристики відеокарти: {{ laptop_specs.graphics_card_specifications }} </p>
     </div>
 
 {% endblock %}
