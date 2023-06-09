@@ -14,3 +14,21 @@
     justify-content: center;
     align-items: center;
 }
+
+.btn_3 {
+    width: 45px;
+    height: 16px;
+    left: 148px;
+    top: 45px;
+    color: white;
+    font-family: 'Impact';
+    font-style: normal;
+    text-decoration: none;
+    background: linear-gradient(0deg, #EBDC57 0%, #0767F8 94.36%);
+    border: 1px solid #000000;
+    border-radius: 5px;
+    line-height: 30px;
+    padding: 0.4em;
+    justify-content: center;
+    align-items: center;
+}
