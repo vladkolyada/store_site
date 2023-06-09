@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
+
+    <div class="filter">
+        <h3>Колір</h3>
+        {% for color in colors_from_db %}
+            <a href="/Tablet/color/{{ color }}">{{ color.color }}</a>
+        {% endfor %}
+        <h3>Бренди</h3>
+        {% for brand in brands_from_db %}
+            <a href="/Tablet/brand/{{ brand }}">{{ brand.brand }}</a>
+        {% endfor %}
+        <h3>Інтернет</h3>
+        {% for processor in processors_from_db %}
+            <a href="/Tablet/processor/{{ communication_standard_or_internet }}">{{ communication_standard_or_internet.communication_standard_or_internet }}</a>
+        {% endfor %}
+        <h3>Сім Карта</h3>
+        {% for SIM_card_characteristics in SIM_card_characteristics_from_db %}
+            <a href="/Tablet/SIM_card_characteristics/{{ SIM_card_characteristics }}">{{ SIM_card_characteristics.SIM_card_characteristics }}</a>
+        {% endfor %}
+        <h3>Характеристики функцій пам'яті</h3>
+        {% for characteristics_memory_functions in characteristics_memory_functions_from_db %}
+            <a href="/Tablet/characteristics_memory_functions/{{ characteristics_memory_functions }}">{{ characteristics_memory_functions.characteristics_memory_functions }}</a>
+        {% endfor %}
+        <h3>Оперційна система</h3>
+        {% for operating_system in operating_system_from_db %}
+            <a href="/Tablet/operating_system/{{ operating_system }}">{{ operating_system.operating_system }}</a>
+        {% endfor %}
+        <h3>Ємність пам'яті</h3>
+        {% for Memory_capacity in Memory_capacity_from_db %}
+            <a href="/Tablet/Memory_capacity/{{ Memory_capacity }}">{{ Memory_capacity.Memory_capacity }}</a>
+        {% endfor %}
+        <h3>Дисплей</h3>
+        {% for Display in Displays_from_db %}
+            <a href="/Tablet/Display/{{ Display }}">{{ Display.Display }}</a>
+        {% endfor %}
+        <h3>producing_country</h3>
+        {% for producing_country in producing_country_from_db %}
+            <a href="/Tablet/producing_country/{{ producing_country }}">{{ producing_country.producing_country }}</a>
+        {% endfor %}
+    </div>
+
+    <div class="product-container">
+        {% for pc in pcs %}
+                <div class="product">
+                    <a href="/product/{{ Tablet.product_title }}">
+                        <img src="/static/{{ Tablet.product_image_name }}" alt="{{ Tablet.product_image_name }}">
+                        <h3 class="p_title">{{ Tablet.product_title }}</h3>
+                        <p class="description">{{ Tablet.product_description }}</p>
+                        <p class="price">{{ Tablet.product_price }} $</p>
+                    </a>
+                </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
