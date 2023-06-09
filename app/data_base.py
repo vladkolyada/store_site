@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import LoginManager, UserMixin
 
 from app.loader import app
 
@@ -10,15 +10,38 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 
-class Admin(UserMixin, db.Model):
-    password = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(60), index=True, unique=True, nullable=False)
+
+#registeradmin(базаданых)
+
+class Users(UserMixin, db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_name = db.Column(db.String(25), unique=True, nullable=False)
+    email = db.Column(db.String, unique=True, nullable=False)
+    password_hash = db.Column(db.String, nullable=False)
+
+    def __repr__(self):
+        return '<Users {}'.format(self.username)
+
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
+
+
+class AdminUsers(UserMixin, db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_name = db.Column(db.String(25), nullable=False, unique=True)
+    password = db.Column(db.String(30), nullable=False)
 
 
 class Products(db.Model):
     product_id = db.Column(db.Integer, primary_key=True)
-    product_image_name = db.Column(db.String(10), unique=True)
-    product_title = db.Column(db.String(150), unique=True)
+    product_image_name = db.Column(db.String(65), unique=True, index=True)
+    product_type = db.Column(db.String(20), index=True)
+    # тут повинні бути, тільки такі слова як: Laptop, PC, Phone, Tablet, Keyboard, Mouse, Headphones. Більше ніякі!
+    product_title = db.Column(db.String(150), unique=True, index=True)
+    product_description = db.Column(db.String(450), index=True)
     product_price = db.Column(db.Integer, nullable=False)
 
 
@@ -31,5 +54,6 @@ class Laptops(db.Model):
     ram_specifications = db.Column(db.String(200))
     number_of_ram_slots = db.Column(db.Integer)
     graphics_card_specifications = db.Column(db.String(250))
-    motherboard_chip_specifications = db.Column(db.String(150))
-    other_motherboard_specs = db.Column(db.String(500))
+
+
+
