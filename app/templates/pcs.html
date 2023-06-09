@@ -40,6 +40,7 @@
         {% for Display in Displays_from_db %}
             <a href="/pc/Display/{{ Display }}">{{ Display.Display }}</a>
         {% endfor %}
+
     </div>
 
     <div class="product-container">
@@ -47,6 +48,8 @@
                 <div class="product">
                     <a href="/product/{{ pc.product_title }}">
                         <img src="/static/{{ pc.product_image_name }}" alt="{{ pc.product_image_name }}">
+                    <a href="/product/{{ laptop.product_title }}">
+                        <img src="/static/{{ laptop.product_image_name }}" alt="{{ laptop.product_image_name }}">
                         <h3 class="p_title">{{ pc.product_title }}</h3>
                         <p class="description">{{ pc.product_description }}</p>
                         <p class="price">{{ pc.product_price }} $</p>
