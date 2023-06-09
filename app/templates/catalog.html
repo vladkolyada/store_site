@@ -1,89 +1,54 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <a href="/pcs">
-        <svg class="pc-link" width="303" height="182" viewBox="0 0 303 182" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="218.5" y="1.5" width="83" height="175" rx="7.5" fill="white" stroke="black" stroke-width="3"/>
-            <rect x="231.5" y="12.5" width="57" height="17" rx="2.5" fill="white" stroke="black" stroke-width="3"/>
-            <rect x="231.5" y="47.5" width="57" height="7" rx="2.5" fill="white" stroke="black" stroke-width="3"/>
-            <rect x="231.5" y="64.5" width="57" height="7" rx="2.5" fill="white" stroke="black" stroke-width="3"/>
-            <rect x="231.5" y="116.5" width="57" height="7" rx="2.5" fill="white" stroke="black" stroke-width="3"/>
-            <circle cx="260" cy="94" r="12.5" fill="white" stroke="black" stroke-width="3"/>
-            <path d="M100.909 145.777L130.818 166.185C132.85 167.571 131.869 170.75 129.409 170.75H69.591C67.1314 170.75 66.1502 167.571 68.182 166.185L98.0909 145.777C98.9408 145.197 100.059 145.197 100.909 145.777Z" fill="white" stroke="black" stroke-width="3"/>
-            <rect x="1.5" y="32.5" width="197" height="112" rx="7.5" fill="white" stroke="black" stroke-width="3"/>
-            <path d="M2 119.5L11.5 123.5L25.5 124.5H50.5H100.5H150.5H177L189 123.5L198.5 118" stroke="black" stroke-width="3"/>
-        </svg>
-    </a>
-    <a href="/pcs" class="pc_word-link">Комп'ютери</a>
+     <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            margin: 0;
+        }
+    </style>
 
-    <a href="/laptops">
-        <svg class="laptop-link" width="246" height="191" viewBox="0 0 246 210" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="19.5" y="1.5" width="203" height="120" rx="6.5" fill="white" stroke="black" stroke-width="3"/>
-            <path d="M24.0841 124.5H217.729C220.704 124.5 223.3 126.52 224.03 129.403L242.021 200.403C243.062 204.511 239.957 208.5 235.72 208.5H9.77336C5.66759 208.5 2.59026 204.741 3.4015 200.716L17.7122 129.716C18.3237 126.682 20.9893 124.5 24.0841 124.5Z" fill="white" stroke="black" stroke-width="3"/>
-            <path d="M26.7459 179.5L33.9078 132.5H204.128L215.109 179.5H26.7459Z" fill="white" stroke="black" stroke-width="3"/>
-            <path d="M29 165V162H211V165L29 165Z" fill="black"/>
-            <path d="M32 149V146H208V149L32 149Z" fill="black"/>
-            <path d="M121 132H124V179H121L121 132Z" fill="black"/>
-            <path d="M145.99 132.215L148.979 131.958L153.01 178.785L150.021 179.042L145.99 132.215Z" fill="black"/>
-            <path d="M169 132.663L171.926 132L182.312 177.838L179.387 178.501L169 132.663Z" fill="black"/>
-            <path d="M72 132L74.9258 132.663L64.3611 179.277L61.4353 178.614L72 132Z" fill="black"/>
-            <path d="M96.0309 132L99.0198 132.257L94.9889 179.084L91.9999 178.827L96.0309 132Z" fill="black"/>
-            <path d="M102.008 186.5H143.088C143.792 186.5 144.402 186.99 144.553 187.678L148.733 206.678C148.939 207.614 148.227 208.5 147.268 208.5H98.5882C97.6534 208.5 96.9463 207.654 97.1119 206.734L100.532 187.734C100.661 187.02 101.282 186.5 102.008 186.5Z" fill="white" stroke="black" stroke-width="3"/>
-            <rect x="26.5" y="8.5" width="189" height="106" rx="3.5" fill="white" stroke="black" stroke-width="3"/>
-        </svg>
-    </a>
-    <a href="/laptops" class="laptop_word-link">Ноутбуки</a>
-
-    <a href="/phones_and_tablets">
-        <svg class="phone-and_tablet-link" width="210" height="190" viewBox="0 0 582 593" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="148.5" y="1.5" width="432" height="559" rx="30.5" fill="white" stroke="black" stroke-width="5"/>
-            <rect x="303.386" y="32.4234" width="120.58" height="13.134" fill="white" stroke="black" stroke-width="5"/>
-            <circle cx="367.5" cy="520.005" r="31" fill="white" stroke="black" stroke-width="5"/>
-            <rect x="147" y="474.608" width="435" height="4.03349" fill="black"/>
-            <rect x="147" y="68.5694" width="435" height="4.03349" fill="black"/>
-            <rect x="1.5" y="176.5" width="261" height="415" rx="30.5" fill="white" stroke="black" stroke-width="5"/>
-            <rect x="95.5" y="199.5" width="72" height="9" fill="white" stroke="black" stroke-width="5"/>
-            <circle cx="132" cy="560" r="23.5" fill="white" stroke="black" stroke-width="5"/>
-            <rect y="528" width="264" height="3" fill="black"/>
-            <rect y="226" width="264" height="3" fill="black"/>
-        </svg>
-    </a>
-    <a href="/phones_and_tablets" class="phone_and_tablet_word-link">Телефони та планшети</a>
-
-    <a href="/computer_peripherals">
-        <svg class="computer_peripherals-link" width="450" height="350" viewBox="0 0 896 478" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="217.5" y="160.501" width="505" height="215" rx="21.5" fill="white" stroke="black" stroke-width="5"/>
-            <rect x="235.5" y="184.501" width="45" height="45" rx="17.5" fill="white" stroke="black" stroke-width="5"/>
-            <rect x="298.5" y="184.501" width="45" height="45" rx="17.5" fill="white" stroke="black" stroke-width="5"/>
-            <rect x="361.5" y="184.501" width="45" height="45" rx="17.5" fill="white" stroke="black" stroke-width="5"/>
-            <rect x="424.5" y="184.501" width="45" height="45" rx="17.5" fill="white" stroke="black" stroke-width="5"/>
-            <rect x="487.5" y="184.501" width="45" height="45" rx="17.5" fill="white" stroke="black" stroke-width="5"/>
-            <rect x="550.5" y="184.501" width="45" height="45" rx="17.5" fill="white" stroke="black" stroke-width="5"/>
-            <rect x="613.5" y="184.501" width="95" height="45" rx="17.5" fill="white" stroke="black" stroke-width="5"/>
-            <rect x="708.5" y="295.5" width="45" height="45" rx="17.5" transform="rotate(-180 708.5 295.5)" fill="white" stroke="black" stroke-width="5"/>
-            <rect x="645.5" y="295.5" width="45" height="45" rx="17.5" transform="rotate(-180 645.5 295.5)" fill="white" stroke="black" stroke-width="5"/>
-            <rect x="582.5" y="295.5" width="45" height="45" rx="17.5" transform="rotate(-180 582.5 295.5)" fill="white" stroke="black" stroke-width="5"/>
-            <rect x="519.5" y="295.5" width="45" height="45" rx="17.5" transform="rotate(-180 519.5 295.5)" fill="white" stroke="black" stroke-width="5"/>
-            <rect x="456.5" y="295.5" width="45" height="45" rx="17.5" transform="rotate(-180 456.5 295.5)" fill="white" stroke="black" stroke-width="5"/>
-            <rect x="393.5" y="295.5" width="45" height="45" rx="17.5" transform="rotate(-180 393.5 295.5)" fill="white" stroke="black" stroke-width="5"/>
-            <rect x="330.5" y="295.5" width="95" height="45" rx="17.5" transform="rotate(-180 330.5 295.5)" fill="white" stroke="black" stroke-width="5"/>
-            <rect x="248.5" y="316.5" width="45" height="45" rx="17.5" fill="white" stroke="black" stroke-width="5"/>
-            <rect x="323.5" y="316.5" width="295" height="45" rx="17.5" fill="white" stroke="black" stroke-width="5"/>
-            <rect x="648.5" y="316.5" width="45" height="45" rx="17.5" fill="white" stroke="black" stroke-width="5"/>
-            <path d="M825.995 286.009L846.892 292.888C871.81 301.091 885.36 327.941 877.157 352.859L852.142 428.848C843.939 453.766 817.089 467.316 792.171 459.113L782.09 455.794L771.274 452.234C746.356 444.031 732.806 417.181 741.009 392.263L766.024 316.274C774.227 291.356 801.077 277.806 825.995 286.009Z" fill="white" stroke="black" stroke-width="5"/>
-            <rect x="833.54" y="290.072" width="5.12605" height="27" transform="rotate(18.2214 833.54 290.072)" fill="black"/>
-            <rect x="816.655" y="341.364" width="5.12605" height="27" rx="2.5" transform="rotate(18.2214 816.655 341.364)" fill="black"/>
-            <rect x="822.71" y="314.181" width="10.622" height="26.917" rx="5.31098" transform="rotate(18.2214 822.71 314.181)" fill="white" stroke="black" stroke-width="5"/>
-            <path d="M49.9301 137.191C41.4941 119.474 40.0574 99.3383 45.9037 81.2232C51.7484 63.1132 64.3891 48.5094 81.0205 40.5903C97.652 32.6711 116.957 32.0637 134.7 38.9423C152.448 45.8227 167.174 59.6307 175.61 77.3476" stroke="black" stroke-width="4"/>
-            <line y1="-2" x2="69.9321" y2="-2" transform="matrix(-0.298107 0.954533 -0.935772 -0.352606 203.408 145.343)" stroke="black" stroke-width="4"/>
-            <rect x="35.2749" y="146.384" width="47.552" height="77.9201" rx="9" transform="rotate(-25.4617 35.2749 146.384)" fill="white" stroke="black" stroke-width="4"/>
-            <rect x="150.344" y="91.5932" width="47.552" height="77.9201" rx="9" transform="rotate(-25.4617 150.344 91.5932)" fill="white" stroke="black" stroke-width="4"/>
-            <mask id="path-27-inside-1_24_121" fill="white">
-            <rect width="32.6251" height="18.3802" rx="3" transform="matrix(-0.298171 0.954513 -0.935748 -0.352669 192.927 215.482)"/>
-            </mask>
-            <rect width="32.6251" height="18.3802" rx="3" transform="matrix(-0.298171 0.954513 -0.935748 -0.352669 192.927 215.482)" fill="white" stroke="black" stroke-width="8" mask="url(#path-27-inside-1_24_121)"/>
-        </svg>
-    </a>
-    <a href="/computer_peripherals" class="computer_peripherals_word-link"> Комп'ютерна Периферія</a>
+    <div class="container">
+        <div class="products-container">
+            <div class="product">
+                <a href="/pcs">
+                    <img src="/static/262901_1.webp" alt="Компьютер">
+                    <h3>Компьютер</h3>
+                </a>
+            </div>
+            <div class="product">
+                <a href="/laptops">
+                    <img src="/static/msi1.jpg" alt="Ноутбук">
+                    <h3>Ноутбук</h3>
+                </a>
+            </div>
+            <div class="product">
+                <a href="/phones">
+                    <img src="/static/gsmarena_001(11).jpg" alt="Телефон">
+                    <h3>Телефон</h3>
+                </a>
+            </div>
+            <div class="product">
+                <a href="/tablets">
+                    <img src="/static/1628644_middle.jpg" alt="Планшет">
+                    <h3>Планшет</h3>
+                </a>
+            </div>
+            <div class="product">
+                <a href="/keyboards">
+                    <img src="/static/U0744573_5big.jpg" alt="Клавиатура">
+                    <h3>Клавиатура</h3>
+                </a>
+            </div>
+            <div class="product">
+                <a href="/mice">
+                    <img src="/static/Logitech-G102-Lightsync-42-Black-01-600x600.webp" alt="Мышь">
+                    <h3>Мышь</h3>
+                </a>
+            </div>
+        </div>
 
 {% endblock %}

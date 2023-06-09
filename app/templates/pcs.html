@@ -10,46 +10,49 @@
     <div class="filter">
         <h3>Колір</h3>
         {% for color in colors_from_db %}
-            <a href="/laptops/color/{{ color }}">{{ color.color }}</a>
+            <a href="/pc/color/{{ color }}">{{ color.color }}</a>
         {% endfor %}
         <h3>Бренди</h3>
         {% for brand in brands_from_db %}
-            <a href="/laptops/brand/{{ brand }}">{{ brand.brand }}</a>
+            <a href="/pc/brand/{{ brand }}">{{ brand.brand }}</a>
         {% endfor %}
         <h3>Процесор</h3>
         {% for processor in processors_from_db %}
-            <a href="/laptops/processor/{{ processor }}">{{ processor.processor }}</a>
+            <a href="/pc/processor/{{ processor }}">{{ processor.processor }}</a>
         {% endfor %}
         <h3>Графічна карта</h3>
         {% for graphic_card in graphic_cards_from_db %}
-            <a href="/laptops/graphic_card/{{ graphic_card }}">{{ graphic_card.graphic_card }}</a>
+            <a href="/pc/graphic_card/{{ graphic_card }}">{{ graphic_card.graphic_card }}</a>
         {% endfor %}
         <h3>ОЗП</h3>
         {% for ram in ram_from_db %}
-            <a href="/laptops/ram/{{ ram }}">{{ ram.ram }}</a>
+            <a href="/pc/ram/{{ ram }}">{{ ram.ram }}</a>
         {% endfor %}
         <h3>Кількість слотів оперативної пам'яті</h3>
         {% for Number_of_RAM_slots in Number_of_RAM_slots_from_db %}
-            <a href="/laptops/Number_of_RAM_slots/{{ Number_of_RAM_slots }}">{{ Number_of_RAM_slots.Number_of_RAM_slots }}</a>
+            <a href="/pc/Number_of_RAM_slots/{{ Number_of_RAM_slots }}">{{ Number_of_RAM_slots.Number_of_RAM_slots }}</a>
         {% endfor %}
         <h3>Ємність пам'яті</h3>
         {% for Memory_capacity in Memory_capacity_from_db %}
-            <a href="/laptops/Memory_capacity/{{ Memory_capacity }}">{{ Memory_capacity.Memory_capacity }}</a>
+            <a href="/pc/Memory_capacity/{{ Memory_capacity }}">{{ Memory_capacity.Memory_capacity }}</a>
         {% endfor %}
         <h3>Дисплей</h3>
         {% for Display in Displays_from_db %}
-            <a href="/laptops/Display/{{ Display }}">{{ Display.Display }}</a>
+            <a href="/pc/Display/{{ Display }}">{{ Display.Display }}</a>
         {% endfor %}
+
     </div>
 
     <div class="product-container">
-        {% for laptop in laptops %}
+        {% for pc in pcs %}
                 <div class="product">
+                    <a href="/product/{{ pc.product_title }}">
+                        <img src="/static/{{ pc.product_image_name }}" alt="{{ pc.product_image_name }}">
                     <a href="/product/{{ laptop.product_title }}">
                         <img src="/static/{{ laptop.product_image_name }}" alt="{{ laptop.product_image_name }}">
-                        <h3 class="p_title">{{ laptop.product_title }}</h3>
-                        <p class="description">{{ laptop.product_description }}</p>
-                        <p class="price">{{ laptop.product_price }} $</p>
+                        <h3 class="p_title">{{ pc.product_title }}</h3>
+                        <p class="description">{{ pc.product_description }}</p>
+                        <p class="price">{{ pc.product_price }} $</p>
                     </a>
                 </div>
         {% endfor %}

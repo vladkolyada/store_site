@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
+
+    <div class="filter">
+        <h3>Колір</h3>
+        {% for color in colors_from_db %}
+            <a href="/Mouse/color/{{ color }}">{{ color.color }}</a>
+        {% endfor %}
+        <h3>Бренди</h3>
+        {% for brand in brands_from_db %}
+            <a href="/Mouse/brand/{{ brand }}">{{ brand.brand }}</a>
+        {% endfor %}
+        <h3>вага</h3>
+        {% for weight in weights_from_db %}
+            <a href="/Mouse/weight/{{ weight }}">{{ weight.weight }}</a>
+        {% endfor %}
+        <h3>Тім датчика</h3>
+        {% for sensor_type in sensor_types_from_db %}
+            <a href="/Mouse/sensor_type/{{ sensor_type }}">{{ sensor_type.sensor_type}}</a>
+        {% endfor %}
+        <h3>додаткові_функції </h3>
+        {% for additional_functions in additional_functions_from_db %}
+            <a href="/Mouse/additional_functions/{{ additional_functions }}">{{ additional_functions.additional_functions }}</a>
+        {% endfor %}
+        <h3>розміри</h3>
+        {% for dimensions in dimensions_from_db %}
+            <a href="/Mouse/dimensions/{{ dimensions }}">{{ dimensions.dimensions }}</a>
+        {% endfor %}
+        <h3>довжина_кабелю</h3>
+        {% for cable_length in Mcable_length_from_db %}
+            <a href="/Mouse/cable_length/{{ cable_length }}">{{ cable_length.cable_length }}</a>
+        {% endfor %}
+        <h3>країна-виробник</h3>
+        {% for producing_country in producing_country_from_db %}
+            <a href="/Mouse/Display/{{ Display }}">{{ producing_country.producing_country }}</a>
+        {% endfor %}
+    </div>
+
+    <div class="product-container">
+        {% for pc in mice %}
+                <div class="product">
+                    <a href="/product/{{ Mouse.product_title }}">
+                        <img src="/static/{{ Mouse.product_image_name }}" alt="{{ Mouse.product_image_name }}">
+                        <h3 class="p_title">{{ Mouse.product_title }}</h3>
+                        <p class="description">{{ Mouse.product_description }}</p>
+                        <p class="price">{{ Mouse.product_price }} $</p>
+                    </a>
+                </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
