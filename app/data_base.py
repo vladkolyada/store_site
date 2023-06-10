@@ -43,12 +43,22 @@ class AdminUsers(UserMixin, db.Model):
 
 class Products(db.Model):
     product_id = db.Column(db.Integer, primary_key=True)
-    product_image_name = db.Column(db.String(65), unique=True, index=True)
+    product_image_name = db.Column(db.String, unique=True, index=True)
     product_type = db.Column(db.String(20), index=True)
     # тут повинні бути, тільки такі слова як: Laptop, PC, Phone, Tablet, Keyboard, Mouse, Headphones. Більше ніякі!
     product_title = db.Column(db.String(150), unique=True, index=True)
     product_description = db.Column(db.String(450), index=True)
     product_price = db.Column(db.Integer, nullable=False)
+
+
+class Orders(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    foreign_key = db.Column(db.Integer, db.ForeignKey('products.product_id'), nullable=False)
+    product_image_name = db.Column(db.String, index=True)
+    # тут повинні бути, тільки такі слова як: Laptop, PC, Phone, Tablet, Keyboard, Mouse, Headphones. Більше ніякі!
+    product_title = db.Column(db.String(150), index=True)
+    product_price = db.Column(db.Integer, nullable=False)
+    quantity = db.Column(db.Integer, nullable=False)
 
 
 class Laptops(db.Model):
@@ -141,6 +151,8 @@ class Keyboard(db.Model):
     foreign_key = db.Column(db.Integer, db.ForeignKey('products.product_id'))
     number_of_keyboard_buttons = db.Column(db.Integer)
     producing_country = db.Column(db.String(50))
+    color = db.Column(db.String(30))
+    brand = db.Column(db.String(50))
     backlight_color = db.Column(db.String(50))
     keyboard_layout = db.Column(db.String(100))
     interface = db.Column(db.String(100))

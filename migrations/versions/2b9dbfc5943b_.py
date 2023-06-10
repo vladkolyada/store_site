@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: bb21de47d6b6
+Revision ID: 2b9dbfc5943b
 Revises: 
-Create Date: 2023-06-07 13:16:19.713242
+Create Date: 2023-06-10 13:48:47.005476
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'bb21de47d6b6'
+revision = '2b9dbfc5943b'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -27,7 +27,7 @@ def upgrade():
     )
     op.create_table('products',
     sa.Column('product_id', sa.Integer(), nullable=False),
-    sa.Column('product_image_name', sa.String(length=65), nullable=True),
+    sa.Column('product_image_name', sa.String(), nullable=True),
     sa.Column('product_type', sa.String(length=20), nullable=True),
     sa.Column('product_title', sa.String(length=150), nullable=True),
     sa.Column('product_description', sa.String(length=450), nullable=True),
@@ -54,6 +54,8 @@ def upgrade():
     sa.Column('foreign_key', sa.Integer(), nullable=True),
     sa.Column('number_of_keyboard_buttons', sa.Integer(), nullable=True),
     sa.Column('producing_country', sa.String(length=50), nullable=True),
+    sa.Column('color', sa.String(length=30), nullable=True),
+    sa.Column('brand', sa.String(length=50), nullable=True),
     sa.Column('backlight_color', sa.String(length=50), nullable=True),
     sa.Column('keyboard_layout', sa.String(length=100), nullable=True),
     sa.Column('interface', sa.String(length=100), nullable=True),
@@ -97,6 +99,20 @@ def upgrade():
     sa.ForeignKeyConstraint(['foreign_key'], ['products.product_id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    op.create_table('orders',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('foreign_key', sa.Integer(), nullable=False),
+    sa.Column('product_image_name', sa.String(), nullable=True),
+    sa.Column('product_title', sa.String(length=150), nullable=True),
+    sa.Column('product_price', sa.Integer(), nullable=False),
+    sa.Column('quantity', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['foreign_key'], ['products.product_id'], ),
+    sa.PrimaryKeyConstraint('id')
+    )
+    with op.batch_alter_table('orders', schema=None) as batch_op:
+        batch_op.create_index(batch_op.f('ix_orders_product_image_name'), ['product_image_name'], unique=True)
+        batch_op.create_index(batch_op.f('ix_orders_product_title'), ['product_title'], unique=True)
+
     op.create_table('pcs',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('foreign_key', sa.Integer(), nullable=True),
@@ -162,6 +178,11 @@ def downgrade():
     op.drop_table('tablet')
     op.drop_table('phones')
     op.drop_table('pcs')
+    with op.batch_alter_table('orders', schema=None) as batch_op:
+        batch_op.drop_index(batch_op.f('ix_orders_product_title'))
+        batch_op.drop_index(batch_op.f('ix_orders_product_image_name'))
+
+    op.drop_table('orders')
     op.drop_table('mouse')
     op.drop_table('laptops')
     op.drop_table('keyboard')
