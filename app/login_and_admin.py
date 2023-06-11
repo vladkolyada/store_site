@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, flash
+from flask import render_template, redirect, url_for, flash,request
 from .forms import LogInAdmin, RegistrationForm, LoginUser,AddProductlaptop
 from flask_login import LoginManager, current_user, login_user, logout_user, login_required
 from app.data_base import AdminUsers, Users, db
@@ -22,6 +22,8 @@ def logout():
     logout_user()
     return redirect('/')
 
+@app.route('/Laptop', methods=['GET', 'POST'])
+
 
 @app.route('/sign_up', methods=['GET', 'POST'])
 def signup():
@@ -42,8 +44,96 @@ def signup():
 #add laptope
 @app.route('/add_product', methods=['GET', 'POST'])
 def addproductlaptop():
-    form=AddProductlaptop()
+    form = AddProductlaptop()
+    product_type = request.form.get('product_type')
+    product_image_name = request.form.get('product_image_name')
+    product_title = request.form.get('product_title')
+    product_description = request.form.get('product_description')
+    product_price = request.form.get('product_price')
+
+    if product_type == "laptop":
+        return redirect(
+            url_for('laptop', image_name=product_image_name, title=product_title, description=product_description,
+                    price=product_price))
+    elif product_type == "PC":
+        return redirect(
+            url_for('PC', image_name=product_image_name, title=product_title, description=product_description,
+                    price=product_price))
+    elif product_type == "Phone":
+        return redirect(
+            url_for('Phone', image_name=product_image_name, title=product_title, description=product_description,
+                    price=product_price))
+    elif product_type == "Tablet":
+        return redirect(
+            url_for('Tablet', image_name=product_image_name, title=product_title, description=product_description,
+                    price=product_price))
+    elif product_type == "Mouse":
+        return redirect(
+            url_for('Mouse', image_name=product_image_name, title=product_title, description=product_description,
+                    price=product_price))
+    elif product_type == "Headphones":
+        return redirect(
+            url_for('Headphones', image_name=product_image_name, title=product_title, description=product_description,
+                    price=product_price))
     return render_template('addproduct.html', form=form)
+
+
+@app.route('/laptop')
+def laptop():
+    image_name = request.args.get('image_name')
+    title = request.args.get('title')
+    description = request.args.get('description')
+    price = request.args.get('price')
+    return render_template('laptop.html', image_name=image_name, title=title, description=description, price=price)
+
+
+@app.route('/PC', methods=['GET', 'POST'])
+def PC():
+    image_name = request.args.get('image_name')
+    title = request.args.get('title')
+    description = request.args.get('description')
+    price = request.args.get('price')
+    return render_template('pc.html', image_name=image_name, title=title, description=description, price=price)
+
+@app.route('/Phone', methods=['GET', 'POST'])
+def Phone():
+    image_name = request.args.get('image_name')
+    title = request.args.get('title')
+    description = request.args.get('description')
+    price = request.args.get('price')
+    return render_template('phone.html', image_name=image_name, title=title, description=description, price=price)
+
+@app.route('/Tablet', methods=['GET', 'POST'])
+def Tablet():
+    image_name = request.args.get('image_name')
+    title = request.args.get('title')
+    description = request.args.get('description')
+    price = request.args.get('price')
+    return render_template('tablet.html', image_name=image_name, title=title, description=description, price=price)
+
+@app.route('/Keyboard', methods=['GET', 'POST'])
+def Keyboard():
+    image_name = request.args.get('image_name')
+    title = request.args.get('title')
+    description = request.args.get('description')
+    price = request.args.get('price')
+    return render_template('keyboard.html', image_name=image_name, title=title, description=description, price=price)
+
+@app.route('/Mouse', methods=['GET', 'POST'])
+def Mouse():
+    image_name = request.args.get('image_name')
+    title = request.args.get('title')
+    description = request.args.get('description')
+    price = request.args.get('price')
+    return render_template('mouse.html', image_name=image_name, title=title, description=description, price=price)
+
+@app.route('/Headphones', methods=['GET', 'POST'])
+def Headphones():
+    image_name = request.args.get('image_name')
+    title = request.args.get('title')
+    description = request.args.get('description')
+    price = request.args.get('price')
+    return render_template('headphones.html', image_name=image_name, title=title, description=description, price=price)
 
 
 
