@@ -4,7 +4,7 @@
     <div class="BG">
         {% if basket %}
             {% for order in basket %}
-                <h3 class="p_title"> <a href="/product/{{ order.foreign_key }}" class="p_title">{{ order.product_title }}
+                <h3 class="p_title"> <a href="/product_{{ p_type }}/{{ order.foreign_key }}" class="p_title">{{ order.product_title }}
                 </a> {{ order.product_price }} $ ({{ order.quantity }} шт.)<a class="btn" href="/delete/{{ order.foreign_key }}">Delete</a> </h3>
             {% endfor %}
         {% else %}

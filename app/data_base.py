@@ -88,7 +88,6 @@ class Pcs(db.Model):
     cpu_cooling = db.Column(db.String(150))
     power_supply_specifications = db.Column(db.String(100))
     case_characteristics = db.Column(db.String(120))
-    producing_country = db.Column(db.String(50))
 
 
 class Phones(db.Model):
@@ -99,7 +98,7 @@ class Phones(db.Model):
     communication_standard_or_internet = db.Column(db.String(150))
     display_characteristics = db.Column(db.String(200))
     SIM_card_characteristics = db.Column(db.String(100))
-    characteristics_memory_functions = db.Column(db.String(150))
+    characteristics_memory_functions = db.Column(db.String(250))
     operating_system = db.Column(db.String(60))
     characteristics_of_the_front_camera = db.Column(db.String(200))
     processor_specifications = db.Column(db.String(150))
@@ -150,6 +149,7 @@ class Keyboard(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     foreign_key = db.Column(db.Integer, db.ForeignKey('products.product_id'))
     number_of_keyboard_buttons = db.Column(db.Integer)
+    connection = db.Column(db.String(50))
     producing_country = db.Column(db.String(50))
     color = db.Column(db.String(30))
     brand = db.Column(db.String(50))
