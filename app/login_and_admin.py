@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-from flask import render_template, redirect, url_for, flash,request
-from .forms import LogInAdmin, RegistrationForm, LoginUser,AddProductlaptop
-=======
-from flask import render_template, redirect, url_for, flash
-from .forms import LogInAdmin, RegistrationForm, LoginUser,AddProductLaptop
->>>>>>> 7f1f5f65268f1f3398b5d937189c6e0789017f1c
+from flask import render_template, redirect, url_for, flash, request
+from .forms import LogInAdmin, RegistrationForm, LoginUser, AddProduct
 from flask_login import LoginManager, current_user, login_user, logout_user, login_required
 from app.data_base import AdminUsers, Users, db
 from app.loader import app
@@ -28,8 +23,6 @@ def logout():
     logout_user()
     return redirect('/')
 
-@app.route('/Laptop', methods=['GET', 'POST'])
-
 
 @app.route('/sign_up', methods=['GET', 'POST'])
 def signup():
@@ -47,11 +40,10 @@ def signup():
     return render_template('sign_up.html', form=form)
 
 
-# add laptop
+@login_required
 @app.route('/add_product', methods=['GET', 'POST'])
-<<<<<<< HEAD
-def addproductlaptop():
-    form = AddProductlaptop()
+def add_product():
+    form = AddProduct()
     product_type = request.form.get('product_type')
     product_image_name = request.form.get('product_image_name')
     product_title = request.form.get('product_title')
@@ -95,47 +87,52 @@ def laptop():
 
 
 @app.route('/PC', methods=['GET', 'POST'])
-def PC():
+def pc():
     image_name = request.args.get('image_name')
     title = request.args.get('title')
     description = request.args.get('description')
     price = request.args.get('price')
     return render_template('pc.html', image_name=image_name, title=title, description=description, price=price)
 
+
 @app.route('/Phone', methods=['GET', 'POST'])
-def Phone():
+def phone():
     image_name = request.args.get('image_name')
     title = request.args.get('title')
     description = request.args.get('description')
     price = request.args.get('price')
     return render_template('phone.html', image_name=image_name, title=title, description=description, price=price)
 
+
 @app.route('/Tablet', methods=['GET', 'POST'])
-def Tablet():
+def tablet():
     image_name = request.args.get('image_name')
     title = request.args.get('title')
     description = request.args.get('description')
     price = request.args.get('price')
     return render_template('tablet.html', image_name=image_name, title=title, description=description, price=price)
 
+
 @app.route('/Keyboard', methods=['GET', 'POST'])
-def Keyboard():
+def keyboard():
     image_name = request.args.get('image_name')
     title = request.args.get('title')
     description = request.args.get('description')
     price = request.args.get('price')
     return render_template('keyboard.html', image_name=image_name, title=title, description=description, price=price)
 
+
 @app.route('/Mouse', methods=['GET', 'POST'])
-def Mouse():
+def mouse():
     image_name = request.args.get('image_name')
     title = request.args.get('title')
     description = request.args.get('description')
     price = request.args.get('price')
     return render_template('mouse.html', image_name=image_name, title=title, description=description, price=price)
 
+
 @app.route('/Headphones', methods=['GET', 'POST'])
-def Headphones():
+def head_phones():
     image_name = request.args.get('image_name')
     title = request.args.get('title')
     description = request.args.get('description')
@@ -143,15 +140,6 @@ def Headphones():
     return render_template('headphones.html', image_name=image_name, title=title, description=description, price=price)
 
 
-
-
-=======
-def add_product_laptop():
-    form = AddProductLaptop()
-    return render_template('addproduct.html', form=form)
-
-
->>>>>>> 7f1f5f65268f1f3398b5d937189c6e0789017f1c
 @app.route('/log_in', methods=['GET', 'POST'])
 def log_in():
     form = LoginUser()
