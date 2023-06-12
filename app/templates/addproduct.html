@@ -3,46 +3,43 @@
 {% block content %}
     <center>
         <h1>Додати продукт</h1>
-        <form method="post" novalidate>
+        <form method="post" enctype="multipart/form-data" >
             {{ form.hidden_tag() }}
             <p>
-                {{ form. product_image_name.label }}<br>
-                {{ form. product_image_name(size=64) }}<br>
-                {% for e in form. product_image_name.errors %}
-                <span style="color: red;">{{ e }}</span>
-                {% endfor %}
+                <label for="lalala_file">Файл:</label><br>
+                <input type="file" name="lalala_file" id="lalala_file">
             </p>
             <p>
-                {{ form. product_type.label }}<br>
-                {{ form. product_type(size=64) }}<br>
-                {% for e in form. product_type.errors %}
-                <span style="color: red;">{{ e }}</span>
+                {{ form.product_type.label }}<br>
+                {{ form.product_type(size=64) }}<br>
+                {% for error in form.product_type.errors %}
+                    <span style="color: red;">{{ error }}</span><br>
                 {% endfor %}
             </p>
             <p>
                 {{ form.product_title.label }}<br>
                 {{ form.product_title(size=64) }}<br>
-                {% for e in form.product_title.errors %}
-                <span style="color: red;">{{ e }}</span>
+                {% for error in form.product_title.errors %}
+                    <span style="color: red;">{{ error }}</span><br>
                 {% endfor %}
             </p>
             <p>
                 {{ form.product_description.label }}<br>
                 {{ form.product_description(size=64) }}<br>
-                {% for e in form.product_description.errors %}
-                <span style="color: red;">{{ e }}</span>
+                {% for error in form.product_description.errors %}
+                    <span style="color: red;">{{ error }}</span><br>
                 {% endfor %}
             </p>
             <p>
                 {{ form.product_price.label }}<br>
                 {{ form.product_price(size=64) }}<br>
-                {% for e in form.product_price.errors %}
-                <span style="color: red;">{{ e }}</span>
+                {% for error in form.product_price.errors %}
+                    <span style="color: red;">{{ error }}</span><br>
                 {% endfor %}
             </p>
-            <p class="btn2">{{ form.submit() }}</p>
-            <div class="btn-container">
-    </div>
+            <p class="btn2">
+                {{ form.submit() }}
+            </p>
         </form>
     </center>
 {% endblock %}
