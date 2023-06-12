@@ -9,6 +9,21 @@ def home():
     return render_template('base.html', title='Магазин комп.тех. (HOME)', all_products=all_products)
 
 
+@app.route('/laptops/color/<color>')
+def color_filter(color):
+    laptops = []
+    laptop_filter = Laptops.query.filter_by(color=color)
+    for i in laptop_filter:
+        laptops.append(Products.query.filter_by(product_id=i.foreign_key).first())
+    return render_template('laptops.html', laptops=laptops)
 
+
+@app.route('/laptops/brand/<brand>')
+def brand_filter(brand):
+    laptops = []
+    laptop_filter = Laptops.query.filter_by(brand=brand)
+    for i in laptop_filter:
+        laptops.append(Products.query.filter_by(product_id=i.foreign_key).first())
+    return render_template('laptops.html', laptops=laptops)
 
 
