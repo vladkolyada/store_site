@@ -1,6 +1,6 @@
 from app.loader import app
-from flask import render_template, flash, redirect, url_for
-from app.data_base import Products, Laptops, Orders, db
+from flask import render_template, redirect
+from app.data_base import Products, Orders, db
 
 p_id = 0
 p_type = ''

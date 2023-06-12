@@ -45,7 +45,7 @@ class Products(db.Model):
     product_id = db.Column(db.Integer, primary_key=True)
     product_image_name = db.Column(db.String, unique=True, index=True)
     product_type = db.Column(db.String(20), index=True)
-    # тут повинні бути, тільки такі слова як: Laptop, PC, Phone, Tablet, Keyboard, Mouse, Headphones. Більше ніякі!
+    # тут повинні бути, тільки такі слова як: Laptop, PC, Phone, Tablet, Keyboard, Mouse. Більше ніякі!
     product_title = db.Column(db.String(150), unique=True, index=True)
     product_description = db.Column(db.String(450), index=True)
     product_price = db.Column(db.Integer, nullable=False)
@@ -55,7 +55,7 @@ class Orders(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     foreign_key = db.Column(db.Integer, db.ForeignKey('products.product_id'), nullable=False)
     product_image_name = db.Column(db.String, index=True)
-    # тут повинні бути, тільки такі слова як: Laptop, PC, Phone, Tablet, Keyboard, Mouse, Headphones. Більше ніякі!
+    # тут повинні бути, тільки такі слова як: Laptop, PC, Phone, Tablet, Keyboard, Mouse. Більше ніякі!
     product_title = db.Column(db.String(150), index=True)
     product_price = db.Column(db.Integer, nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
@@ -69,7 +69,6 @@ class Laptops(db.Model):
     processor_specifications = db.Column(db.String(150))
     graphics_card_specifications = db.Column(db.String(250))
     ram_specifications = db.Column(db.String(200))
-    number_of_ram_slots = db.Column(db.Integer)
     memory_capacity_specifications = db.Column(db.String(250))
     display_characteristics = db.Column(db.String(200))
     producing_country = db.Column(db.String(50))
@@ -97,7 +96,7 @@ class Phones(db.Model):
     color = db.Column(db.String(30))
     communication_standard_or_internet = db.Column(db.String(150))
     display_characteristics = db.Column(db.String(200))
-    SIM_card_characteristics = db.Column(db.String(100))
+    sim_card_characteristics = db.Column(db.String(100))
     characteristics_memory_functions = db.Column(db.String(250))
     operating_system = db.Column(db.String(60))
     characteristics_of_the_front_camera = db.Column(db.String(200))

@@ -7,7 +7,7 @@ p_id = 0
 p_price = 0
 
 
-@app.route('/product_laptop/<int:product_id>')
+@app.route('/product_Laptop/<int:product_id>')
 def show_laptop(product_id):
     global quantity, p_id, p_price
     product = Products.query.filter_by(product_id=product_id).first()
@@ -21,7 +21,7 @@ def show_laptop(product_id):
                            p_price=p_price)
 
 
-@app.route('/product_pc/<int:product_id>')
+@app.route('/product_PC/<int:product_id>')
 def show_pc(product_id):
     global quantity, p_id, p_price
     product = Products.query.filter_by(product_id=product_id).first()
@@ -35,7 +35,7 @@ def show_pc(product_id):
                            p_price=p_price)
 
 
-@app.route('/product_phone/<int:product_id>')
+@app.route('/product_Phone/<int:product_id>')
 def show_phone(product_id):
     global quantity, p_id, p_price
     product = Products.query.filter_by(product_id=product_id).first()
@@ -49,7 +49,7 @@ def show_phone(product_id):
                            p_price=p_price)
 
 
-@app.route('/product_tablet/<int:product_id>')
+@app.route('/product_Tablet/<int:product_id>')
 def show_tablet(product_id):
     global quantity, p_id, p_price
     product = Products.query.filter_by(product_id=product_id).first()
@@ -63,7 +63,7 @@ def show_tablet(product_id):
                            p_price=p_price)
 
 
-@app.route('/product_mouse/<int:product_id>')
+@app.route('/product_Mouse/<int:product_id>')
 def show_mouse(product_id):
     global quantity, p_id, p_price
     product = Products.query.filter_by(product_id=product_id).first()
@@ -77,7 +77,7 @@ def show_mouse(product_id):
                            p_price=p_price)
 
 
-@app.route('/product_keyboard/<int:product_id>')
+@app.route('/product_Keyboard/<int:product_id>')
 def show_keyboard(product_id):
     global quantity, p_id, p_price
     product = Products.query.filter_by(product_id=product_id).first()
