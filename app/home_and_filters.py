@@ -5,6 +5,7 @@ from .data_base import Products, Laptops
 
 @app.route('/')
 def home():
+
     return render_template('base.html', title='Магазин комп.тех. (HOME)')
 
 
@@ -18,6 +19,11 @@ def laptop_filter(filter):
     render_template('laptops.html', product=product)
 
     
+
+    all_products = Products.query.all()
+    return render_template('base.html', title='Магазин комп.тех. (HOME)', all_products=all_products)
+
+
 
 
 

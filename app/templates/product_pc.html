@@ -1,0 +1,35 @@
+product_laptop.html{% extends 'base.html' %}
+
+{% block content %}
+
+    <style>
+        .btn-container {
+            text-align: center;
+        }
+    </style>
+    <div class="btn-container">
+        <img src="/static/{{ product.product_image_name }}"><br>
+        <p class="p_title">{{ product.product_title }}</p>
+        {% if p_price == 0 %}
+            <p class="p_title"> {{ p_price }} $ </p>
+        {% else %}
+            <p class="p_title"> {{ p_price }} $ <a class="btn" href="/buy/{{ product.product_id }}/{{ quantity }}"> Купити </a> </p>
+        {% endif %}
+        <p class="p_title"> {{ quantity }} шт. <a class="btn" href="/add_quantity"> + </a> <a class="btn" href="/remove_quantity/pc"> - </a></p>
+    </div>
+    <hr>
+
+    <div class="btn-container">
+        <p class="p_specs"> Колір: {{ pc_specs.color }}</p>
+        <p class="p_specs"> Характеристики процесора: {{ pc_specs.processor_specifications }} </p>
+        <p class="p_specs"> Характеристики відеокарти: {{ pc_specs.graphics_card_specifications }} </p>
+        <p class="p_specs"> Характеристики об'єма пам'яті: {{ pc_specs.memory_capacity_specifications }} </p>
+        <p class="p_specs"> Характеристики оперативної пам'яті: {{ pc_specs.ram_specifications }} </p>
+        <p class="p_specs"> Кількість слотів оперативної пам'яті: {{ pc_specs.memory_capacity_specifications }} </p>
+        <p class="p_specs"> Характеристики материнської плати: {{ pc_specs.specifications_motherboard }} </p>
+        <p class="p_specs"> Характеристики охолодження: {{ pc_specs.cpu_cooling }} </p>
+        <p class="p_specs"> Характеристики блока живлення: {{ pc_specs.power_supply_specifications }} </p>
+        <p class="p_specs"> Характеристики корпуса: {{ pc_specs.case_characteristics }} </p>
+    </div>
+
+{% endblock %}

@@ -10,10 +10,15 @@
     <div class="btn-container">
         <img src="/static/{{ product.product_image_name }}"><br>
         <p class="p_title">{{ product.product_title }}</p>
-        <p class="p_title"> {{ product.product_price }} $  <a class="btn" href="/buy/{{ product.product_title }}">Купити</a> </p>
+        {% if p_price == 0 %}
+            <p class="p_title"> {{ p_price }} $ </p>
+        {% else %}
+            <p class="p_title"> {{ p_price }} $ <a class="btn" href="/buy/{{ product.product_id }}/{{ quantity }}/Laptop"> Купити </a> </p>
+        {% endif %}
+        <p class="p_title"> {{ quantity }} шт. <a class="btn" href="/add_quantity/Laptop"> + </a> <a class="btn" href="/remove_quantity/Laptop"> - </a></p>
+
     </div>
     <hr>
-
     <div class="btn-container">
         <p class="p_specs"> Колір: {{ laptop_specs.color }}</p>
         <p class="p_specs"> Бренд: {{ laptop_specs.brand }}</p>
@@ -21,7 +26,6 @@
         <p class="p_specs"> Характеристики об'єма пам'яті: {{ laptop_specs.memory_capacity_specifications }} </p>
         <p class="p_specs"> Характеристики дисплея: {{ laptop_specs.display_characteristics }} </p>
         <p class="p_specs"> Характеристики оперативної пам'яті: {{ laptop_specs.ram_specifications }} </p>
-        <p class="p_specs"> Кількість слотів оперативної пам'яті: {{ laptop_specs.number_of_ram_slots }} </p>
         <p class="p_specs"> Характеристики відеокарти: {{ laptop_specs.graphics_card_specifications }} </p>
     </div>
 
