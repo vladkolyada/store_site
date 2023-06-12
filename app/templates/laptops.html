@@ -9,43 +9,47 @@
 
     <div class="filter">
         <h3>Колір</h3>
-        {% for color in colors_from_db %}
-            <a href="/laptops/color/{{ color }}">{{ color.color }}</a>
-        {% endfor %}
+        <a href="/laptops/color/red">Червоний</a><br>
+        <a href="/laptops/color/grey">Сірий</a><br>
+        <a href="/laptops/color/black">Чорний</a><br>
+        <a href="/laptops/color/white">Білий</a>
         <h3>Бренди</h3>
-        {% for brand in brands_from_db %}
-            <a href="/laptops/brand/{{ brand }}">{{ brand.brand }}</a>
-        {% endfor %}
+        <a href="/laptops/brand/Lenovo">Lenovo</a><br>
+        <a href="/laptops/brand/HP">HP</a><br>
+        <a href="/laptops/brand/ASUS">ASUS</a><br>
+        <a href="/laptops/brand/Acer">Acer</a><br>
+        <a href="/laptops/brand/Apple">Apple</a><br>
+        <a href="/laptops/brand/MSI">MSI</a>
         <h3>Процесор</h3>
-        {% for processor in processors_from_db %}
-            <a href="/laptops/processor/{{ processor }}">{{ processor.processor }}</a>
+        {% for laptop in laptops %}
+            <a href="/laptops/processor/{{ laptop.processor_specifications }}">{{ laptop.processor_specifications }}</a>
         {% endfor %}
         <h3>Графічна карта</h3>
-        {% for graphic_card in graphic_cards_from_db %}
-            <a href="/laptops/graphic_card/{{ graphic_card }}">{{ graphic_card.graphic_card }}</a>
+        {% for laptop in laptops %}
+            <a href="/laptops/g_c/{{ laptop.graphics_card_specifications }}">{{ laptop.graphics_card_specifications }}</a>
         {% endfor %}
         <h3>ОЗП</h3>
-        {% for ram in ram_from_db %}
-            <a href="/laptops/ram/{{ ram }}">{{ ram.ram }}</a>
-        {% endfor %}
-        <h3>Кількість слотів оперативної пам'яті</h3>
-        {% for Number_of_RAM_slots in Number_of_RAM_slots_from_db %}
-            <a href="/laptops/Number_of_RAM_slots/{{ Number_of_RAM_slots }}">{{ Number_of_RAM_slots.Number_of_RAM_slots }}</a>
+        {% for laptop in laptops %}
+            <a href="/laptops/ram/{{ laptop.ram_specifications }}">{{ laptop.ram_specifications }}</a>
         {% endfor %}
         <h3>Ємність пам'яті</h3>
-        {% for Memory_capacity in Memory_capacity_from_db %}
-            <a href="/laptops/Memory_capacity/{{ Memory_capacity }}">{{ Memory_capacity.Memory_capacity }}</a>
+        {% for laptop in laptops %}
+            <a href="/laptops/memory/{{ laptop.memory_capacity_specifications }}">{{ laptop.memory_capacity_specifications }}</a>
         {% endfor %}
         <h3>Дисплей</h3>
-        {% for Display in Displays_from_db %}
-            <a href="/laptops/Display/{{ Display }}">{{ Display.Display }}</a>
+        {% for laptop in laptops %}
+            <a href="/laptops/display/{{ laptop.display_characteristics }}">{{ laptop.display_characteristics }}</a>
+        {% endfor %}
+        <h3>Країна виробник</h3>
+        {% for laptop in laptops %}
+            <a href="/laptops/producing_country/{{ laptop.producing_country }}">{{ laptop.producing_country }}</a>
         {% endfor %}
     </div>
 
     <div class="product-container">
         {% for laptop in laptops %}
                 <div class="product">
-                    <a href="/product_laptop/{{ laptop.product_id }}">
+                    <a href="/product_{{ laptop.product_type }}/{{ laptop.product_id }}">
                         <img src="/static/{{ laptop.product_image_name }}" alt="{{ laptop.product_image_name }}">
                         <h3 class="p_title">{{ laptop.product_title }}</h3>
                         <p class="description">{{ laptop.product_description }}</p>

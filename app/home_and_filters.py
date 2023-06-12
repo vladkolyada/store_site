@@ -5,14 +5,10 @@ from .data_base import Products, Laptops
 
 @app.route('/')
 def home():
-    return render_template('base.html', title='Магазин комп.тех. (HOME)')
+    all_products = Products.query.all()
+    return render_template('base.html', title='Магазин комп.тех. (HOME)', all_products=all_products)
 
 
-@app.route('/laptops/brand/<filter>')
-def laptop_filter(filter):
-    laptop = Laptops.query.filter_by(brand=filter)
-    product = Products.query.filter_by(id=laptop.foreign_key)
-    render_template('laptops.html', product=product)
 
 
 
