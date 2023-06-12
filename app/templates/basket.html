@@ -29,16 +29,7 @@
             text-decoration: none;
         }
     </style>
-    <h1>КОШИК!!</h1>
-    {% if basket %}
-        {% for i in basket %}
-            <h3 class="p_title"> <a href="/product/{{ i }}" class="p_title">{{ i }}</a> <a class="btn" href="/delete/{{ i }}">Delete</a> </h3>
-        {% endfor %}
-    {% else %}
-        <h3> Кошик пустий!!! </h3>
-        <h3 class="p_title"> Кошик пустий </h3>
-    {% endif %}
-{% endblock %}
+
 
 
     <div class="BG">
