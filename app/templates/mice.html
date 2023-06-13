@@ -27,7 +27,7 @@
     <div class="product-container">
         {% for mouse in mice %}
                 <div class="product">
-                    <a href="/product/{{ mouse.product_title }}">
+                    <a href="/product_{{ mouse.product_type }}/{{ mouse.product_id }}">
                         <img src="/static/{{ mouse.product_image_name }}" alt="{{ mouse.product_image_name }}">
                         <h3 class="p_title">{{ mouse.product_title }}</h3>
                         <p class="description">{{ mouse.product_description }}</p>

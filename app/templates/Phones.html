@@ -27,7 +27,7 @@
     <div class="product-container">
         {% for phone in phones %}
                 <div class="product">
-                    <a href="/product/{{ phone.product_title }}">
+                    <a href="/product_{{ phone.product_type }}/{{ phone.product_title }}">
                         <img src="/static/{{ phone.product_image_name }}" alt="{{ phone.product_image_name }}">
                         <h3 class="p_title">{{ phone.product_title }}</h3>
                         <p class="description">{{ phone.product_description }}</p>

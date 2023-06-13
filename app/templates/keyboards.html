@@ -27,7 +27,7 @@
     <div class="product-container">
         {% for keyboard in keyboards %}
                 <div class="product">
-                    <a href="/product/{{ keyboard.product_title }}">
+                    <a href="/product_{{ keyboard.product_type }}/{{ keyboard.product_id }}">
                         <img src="/static/{{ keyboard.product_image_name }}" alt="{{ keyboard.product_image_name }}">
                         <h3 class="p_title">{{ keyboard.product_title }}</h3>
                         <p class="description">{{ keyboard.product_description }}</p>
