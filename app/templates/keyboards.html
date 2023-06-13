@@ -8,48 +8,30 @@
     </style>
 
     <div class="filter">
-        <h3></h3>
-        {% for producing_country in producing_country_from_db %}
-            <a href="/Keyboard/producing_country/{{ producing_country }}">{{ producing_country.producing_country }}</a>
-        {% endfor %}
-        <h3></h3>
-        {% for backlight_color in backlight_color_from_db %}
-            <a href="/Keyboard/backlight_color/{{ backlight_color }}">{{ backlight_color.backlight_color }}</a>
-        {% endfor %}
-        <h3></h3>
-        {% for keyboard_layout in keyboard_layout_from_db %}
-            <a href="/Keyboard/keyboard_layout/{{ keyboard_layout }}">{{ keyboard_layout.keyboard_layout }}</a>
-        {% endfor %}
-        <h3></h3>
-        {% for interface_type in interface_from_db %}
-            <a href="/Keyboard/interface/{{ interface }}">{{ interface.interface}}</a>
-        {% endfor %}
-        <h3></h3>
-        {% for weight in weight_from_db %}
-            <a href="/Keyboard/weight/{{ weight }}">{{ weight.weight }}</a>
-        {% endfor %}
-        <h3></h3>
-        {% for appointment in appointment_from_db %}
-            <a href="/Keyboard/appointment/{{ appointment }}">{{ appointment.appointment }}</a>
-        {% endfor %}
-        <h3>довжина_кабелю</h3>
-        {% for cable_length in cable_length_from_db %}
-            <a href="/Keyboard/cable_length/{{ cable_length }}">{{ cable_length.cable_length }}</a>
-        {% endfor %}
-        <h3>країна-виробник</h3>
-        {% for dimensions in dimensions_from_db %}
-            <a href="/Keyboard/dimensions/{{ dimensions }}">{{ dimensions.dimensions }}</a>
-        {% endfor %}
+        <h3>Колір</h3>
+        <a href="/keyboards/color/red">Червоний</a><br>
+        <a href="/keyboards/color/grey">Сірий</a><br>
+        <a href="/keyboards/color/black">Чорний</a><br>
+        <a href="/keyboards/color/white">Білий</a>
+        <h3>Бренди</h3>
+        <a href="/keyboards/brand/Lenovo">Lenovo</a><br>
+        <a href="/keyboards/brand/HP">HP</a><br>
+        <a href="/keyboards/brand/ASUS">ASUS</a><br>
+        <a href="/keyboards/brand/Acer">Acer</a><br>
+        <a href="/keyboards/brand/Apple">Apple</a><br>
+        <a href="/keyboards/brand/MSI">MSI</a>
+        <a href="/keyboards/brand/Razer">Razer</a>
+        <a href="/keyboards/brand/Dell">Dell</a>
     </div>
 
     <div class="product-container">
-        {% for pc in Keyboards %}
+        {% for keyboard in keyboards %}
                 <div class="product">
-                    <a href="/product/{{ Keyboard.product_title }}">
-                        <img src="/static/{{ Keyboard.product_image_name }}" alt="{{ Keyboard.product_image_name }}">
-                        <h3 class="p_title">{{ Keyboard.product_title }}</h3>
-                        <p class="description">{{ Keyboard.product_description }}</p>
-                        <p class="price">{{ Keyboard.product_price }} $</p>
+                    <a href="/product/{{ keyboard.product_title }}">
+                        <img src="/static/{{ keyboard.product_image_name }}" alt="{{ keyboard.product_image_name }}">
+                        <h3 class="p_title">{{ keyboard.product_title }}</h3>
+                        <p class="description">{{ keyboard.product_description }}</p>
+                        <p class="price">{{ keyboard.product_price }} $</p>
                     </a>
                 </div>
         {% endfor %}

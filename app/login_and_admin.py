@@ -57,28 +57,29 @@ def add_product():
         db.session.commit()
         if product_type == "Laptop":
             return redirect(
-                url_for('laptop',image_name=file.filename, title=product_title, description=product_description,
+                url_for('laptop', image_name=file.filename, title=product_title, description=product_description,
                         price=product_price))
         elif product_type == "PC":
             return redirect(
-                url_for('pc',image_name=file.filename,title=product_title, description=product_description,
+                url_for('pc', image_name=file.filename,title=product_title, description=product_description,
                         price=product_price))
         elif product_type == "Phone":
             return redirect(
-                url_for('phone',image_name=file.filename,title=product_title, description=product_description,price=product_price))
+                url_for('phone', image_name=file.filename,title=product_title, description=product_description,
+                        price=product_price))
         elif product_type == "Tablet":
             return redirect(
-                url_for('tablet',image_name=file.filename, title=product_title, description=product_description,
+                url_for('tablet', image_name=file.filename, title=product_title, description=product_description,
                         price=product_price))
         elif product_type == "Mouse":
             return redirect(
-                url_for('mouse',image_name=file.filename,title=product_title, description=product_description,
+                url_for('mouse', image_name=file.filename,title=product_title, description=product_description,
                         price=product_price))
         elif product_type == "Headphones":
             return redirect(
                 url_for('head_phones',image_name=file.filename, title=product_title, description=product_description,
                         price=product_price))
-    return render_template('addproduct.html', form=form,)
+    return render_template('addproduct.html', form=form)
 
 
 @app.route('/laptop')

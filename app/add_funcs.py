@@ -11,9 +11,9 @@ def add_product(product_image_name: str, product_type: str, product_title: str,
     db.session.commit()
 
 
-def add_laptop(product_id: int, processor_specifications: str, memory_capacity_specifications: str,
-               display_characteristics: str, ram_specifications: str, graphics_card_specifications: str,
-               color: str, brand: str, producing_country: str):
+def add_laptop_specs(product_id: int, processor_specifications: str, memory_capacity_specifications: str,
+                     display_characteristics: str, ram_specifications: str, graphics_card_specifications: str,
+                     color: str, brand: str, producing_country: str):
     laptop = Laptops(foreign_key=product_id,
                      color=color,
                      brand=brand,
@@ -27,10 +27,10 @@ def add_laptop(product_id: int, processor_specifications: str, memory_capacity_s
     db.session.commit()
 
 
-def add_pc(product_id: int, processor_specifications: str, memory_capacity_specifications: str,
-           specifications_motherboard: str, ram_specifications: str, number_of_ram_slots: int,
-           graphics_card_specifications: str, color: str, cpu_cooling: str, power_supply_specifications: str,
-           case_characteristics: str):
+def add_pc_specs(product_id: int, processor_specifications: str, memory_capacity_specifications: str,
+                 specifications_motherboard: str, ram_specifications: str, number_of_ram_slots: int,
+                 graphics_card_specifications: str, color: str, cpu_cooling: str, power_supply_specifications: str,
+                 case_characteristics: str):
     pc = Pcs(foreign_key=product_id,
              color=color,
              processor_specifications=processor_specifications,
@@ -46,22 +46,22 @@ def add_pc(product_id: int, processor_specifications: str, memory_capacity_speci
     db.session.commit()
 
 
-def add_phone(product_id: int,
-              brand: str,
-              color: str,
-              communication_standard_or_internet: str,
-              display_characteristics: str,
-              sim_card_characteristics: str,
-              characteristics_memory_functions: str,
-              operating_system: str,
-              characteristics_of_the_front_camera: str,
-              processor_specifications: str,
-              characteristics_of_the_main_camera: str,
-              power_characteristics: str,
-              connectors: str,
-              navigation: str,
-              dimensions: str,
-              producing_country: str):
+def add_phone_specs(product_id: int,
+                    brand: str,
+                    color: str,
+                    communication_standard_or_internet: str,
+                    display_characteristics: str,
+                    sim_card_characteristics: str,
+                    characteristics_memory_functions: str,
+                    operating_system: str,
+                    characteristics_of_the_front_camera: str,
+                    processor_specifications: str,
+                    characteristics_of_the_main_camera: str,
+                    power_characteristics: str,
+                    connectors: str,
+                    navigation: str,
+                    dimensions: str,
+                    producing_country: str):
     phone = Phones(foreign_key=product_id,
                    brand=brand,
                    color=color,
@@ -82,20 +82,20 @@ def add_phone(product_id: int,
     db.session.commit()
 
 
-def add_tablet(product_id: int,
-               brand: str,
-               color: str,
-               display_characteristics: str,
-               characteristics_memory_functions: str,
-               operating_system: str,
-               characteristics_of_the_front_camera: str,
-               processor_specifications: str,
-               characteristics_of_the_main_camera: str,
-               power_characteristics: str,
-               connectors: str,
-               navigation: str,
-               dimensions: str,
-               producing_country: str):
+def add_tablet_specs(product_id: int,
+                     brand: str,
+                     color: str,
+                     display_characteristics: str,
+                     characteristics_memory_functions: str,
+                     operating_system: str,
+                     characteristics_of_the_front_camera: str,
+                     processor_specifications: str,
+                     characteristics_of_the_main_camera: str,
+                     power_characteristics: str,
+                     connectors: str,
+                     navigation: str,
+                     dimensions: str,
+                     producing_country: str):
     tablet = Tablet(foreign_key=product_id,
                     brand=brand,
                     color=color,
@@ -114,19 +114,19 @@ def add_tablet(product_id: int,
     db.session.commit()
 
 
-def add_mouse(product_id: int,
-              connection: str,
-              size: str,
-              interface: str,
-              number_of_mouse_buttons: str,
-              color: str,
-              brand: str,
-              weight: str,
-              sensor_type: str,
-              additional_functions: str,
-              dimensions: str,
-              cable_length: str,
-              producing_country: str):
+def add_mouse_specs(product_id: int,
+                    connection: str,
+                    size: str,
+                    interface: str,
+                    number_of_mouse_buttons: str,
+                    color: str,
+                    brand: str,
+                    weight: str,
+                    sensor_type: str,
+                    additional_functions: str,
+                    dimensions: str,
+                    cable_length: str,
+                    producing_country: str):
 
     mouse = Mouse(foreign_key=product_id,
                   connection=connection,
@@ -145,19 +145,19 @@ def add_mouse(product_id: int,
     db.session.commit()
 
 
-def add_keyboard(product_id: int,
-                 number_of_keyboard_buttons: str,
-                 connection: str,
-                 producing_country: str,
-                 color: str,
-                 brand: str,
-                 backlight_color: str,
-                 keyboard_layout: str,
-                 interface: str,
-                 weight: str,
-                 appointment: str,
-                 cable_length: str,
-                 dimensions: str):
+def add_keyboard_specs(product_id: int,
+                       number_of_keyboard_buttons: str,
+                       connection: str,
+                       producing_country: str,
+                       color: str,
+                       brand: str,
+                       backlight_color: str,
+                       keyboard_layout: str,
+                       interface: str,
+                       weight: str,
+                       appointment: str,
+                       cable_length: str,
+                       dimensions: str):
     keyboard = Keyboard(foreign_key=product_id,
                         number_of_keyboard_buttons=number_of_keyboard_buttons,
                         connection=connection,
