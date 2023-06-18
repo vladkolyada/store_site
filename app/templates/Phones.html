@@ -14,18 +14,18 @@
         <a href="/phones/color/black">Чорний</a><br>
         <a href="/phones/color/white">Білий</a>
         <h3>Бренди</h3>
-        <a href="/mice/brand/Samsung">Samsung</a><br>
-        <a href="/mice/brand/Huawei">Huawei</a><br>
-        <a href="/mice/brand/Xiaomi">Xiaomi</a><br>
-        <a href="/mice/brand/Apple">Apple</a><br>
-        <a href="/mice/brand/Honor">Honor</a>
-        <a href="/mice/brand/Poco">Poco</a>
+        <a href="/phones/brand/Samsung">Samsung</a><br>
+        <a href="/phones/brand/Huawei">Huawei</a><br>
+        <a href="/phones/brand/Xiaomi">Xiaomi</a><br>
+        <a href="/phones/brand/Apple">Apple</a><br>
+        <a href="/phones/brand/Honor">Honor</a>
+        <a href="/phones/brand/Poco">Poco</a>
     </div>
 
     <div class="product-container">
         {% for phone in phones %}
                 <div class="product">
-                    <a href="/product_{{ phone.product_type }}/{{ phone.product_title }}">
+                    <a href="/product_{{ phone.product_type }}/{{ phone.product_id }}">
                         <img src="/static/{{ phone.product_image_name }}" alt="{{ phone.product_image_name }}">
                         <h3 class="p_title">{{ phone.product_title }}</h3>
                         <p class="description">{{ phone.product_description }}</p>

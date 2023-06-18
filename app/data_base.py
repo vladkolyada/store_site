@@ -43,7 +43,7 @@ class AdminUsers(UserMixin, db.Model):
 
 class Products(db.Model):
     product_id = db.Column(db.Integer, primary_key=True)
-    product_image_name = db.Column(db.String, unique=True, index=True)
+    product_image_name = db.Column(db.String)
     product_type = db.Column(db.String(20), index=True)
     # тут повинні бути, тільки такі слова як: Laptop, PC, Phone, Tablet, Keyboard, Mouse. Більше ніякі!
     product_title = db.Column(db.String(150), unique=True, index=True)

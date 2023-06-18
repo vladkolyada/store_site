@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+  <center>
+        <h1>Додати характеристики миші</h1>
+        <form method="post" enctype="multipart/form-data" >
+          {{ form.hidden_tag() }}
+          <img src="/static/{{ image_name }}" width="512" height="512"><br>
+          <p>{{ product_title }}</p>
+          <p>{{ price }}</p>
+          <p>
+              {{ form.color.label }}<br>
+              {{ form.color(size=64) }}<br>
+          </p>
+          <p>
+              {{ form.brand.label }}<br>
+              {{ form.brand(size=64) }}<br>
+          </p>
+          <p>
+              {{ form.number_of_mouse_buttons.label }}<br>
+              {{ form.number_of_mouse_buttons(size=64) }}<br>
+          </p>
+          <p>
+              {{ form.sensor_type.label }}<br>
+              {{ form.sensor_type(size=64) }}<br>
+          </p>
+          <p>
+              {{ form.size.label }}<br>
+              {{ form.size(size=64) }}<br>
+          </p>
+          <p>
+              {{ form.connection.label }}<br>
+              {{ form.connection(size=64) }}<br>
+          </p>
+          <p>
+              {{ form.interface.label }}<br>
+              {{ form.interface(size=64) }}<br>
+          </p>
+          <p>
+              {{ form.weight.label }}<br>
+              {{ form.weight(size=64) }}<br>
+          </p>
+          <p>
+              {{ form.cable_length.label }}<br>
+              {{ form.cable_length(size=64) }}<br>
+          </p>
+          <p>
+              {{ form.dimensions.label }}<br>
+              {{ form.dimensions(size=64) }}<br>
+          </p>
+          <p>
+              {{ form.additional_functions.label }}<br>
+              {{ form.additional_functions(size=64) }}<br>
+          </p>
+          <p>
+              {{ form.producing_country.label }}<br>
+              {{ form.producing_country(size=64) }}<br>
+          </p>
+            <p class="btn2">
+                {{ form.submit() }}
+            </p>
+        </form>
+    </center>
+{% endblock %}
