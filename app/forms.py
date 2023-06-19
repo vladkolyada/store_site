@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Email, EqualTo
 
 
@@ -33,3 +33,12 @@ class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
+
+
+class Otpavka(FlaskForm):
+    email = StringField('email', validators=[DataRequired(), Email()])
+    phone = StringField('number', validators=[DataRequired()])
+    adressa = SelectField('adressa', choices=[('Kiev', 'Kiev'), ('chernivci', 'Chernivci')])
+    dostavka = SelectField('sposib dostavki', choices=[('Ukrposhta', 'Ukrposhta'), ('olx', 'Olx')])
+    send = SubmitField('Submit')
+

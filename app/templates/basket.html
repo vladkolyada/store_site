@@ -34,13 +34,16 @@
 
     <div class="BG">
         {% if basket %}
+        <h3 style="position: fixed; right: 5%; top: 5%; "> {{ a }} </h3>
             {% for order in basket %}
                 <h3 class="p_title"> <a href="/product_{{ p_type }}/{{ order.foreign_key }}" class="p_title">{{ order.product_title }}
-                </a> {{ order.product_price }} $ ({{ order.quantity }} шт.)<a class="btn" href="/delete/{{ order.foreign_key }}">Delete</a> </h3>
+                </a><img width="50" height="45" src="/static/{{ order.product_image_name }}"> {{ order.product_price }} $ ({{ order.quantity }} шт.)<a class="btn" href="/delete/{{ order.foreign_key }}">Delete</a> </h3>
             {% endfor %}
         {% else %}
             <h3 class="p_title"> Кошик пустий </h3>
         {% endif %}
+    <a href="/send_product" class="btn">Доставити</a>
+
     </div>
 {% endblock %}
 
