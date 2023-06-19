@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for, flash, request
-from .forms import LogInAdmin, RegistrationForm, LoginUser, AddProduct
+from .forms import LogInAdmin, RegistrationForm, LoginUser, AddProduct,characterleptop,characterPc
 from flask_login import LoginManager, current_user, login_user, logout_user, login_required
-from app.data_base import AdminUsers, Users, db,Products
+from app.data_base import AdminUsers, Users, db,Products,Laptops,Pcs,Phones,Tablet,Mouse,Keyboard
 from app.loader import app
 
 login = LoginManager(app)
@@ -27,6 +27,7 @@ def logout():
 @app.route('/sign_up', methods=['GET', 'POST'])
 def signup():
     form = RegistrationForm()
+
     if form.validate_on_submit():
         user_name = form.username.data
         email = form.email.data
@@ -42,7 +43,6 @@ def signup():
 
 @app.route('/add_product', methods=['GET', 'POST'])
 def add_product():
-
     form = AddProduct()
     if request.method == 'POST':
         file = request.files['lalala_file']
@@ -52,17 +52,23 @@ def add_product():
         product_title = request.form.get('product_title')
         product_description = request.form.get('product_description')
         product_price = request.form.get('product_price')
-        base=Products(product_image_name=file.filename,product_type=product_type,product_title=product_title,product_description=product_description,product_price=product_price)
+
+
+
+        base = Products(product_image_name=file.filename, product_type=product_type, product_title=product_title,
+                        product_description=product_description, product_price=product_price)
+
+
         db.session.add(base)
         db.session.commit()
+
         if product_type == "Laptop":
-            return redirect(
-                url_for('laptop',image_name=file.filename, title=product_title, description=product_description,
-                        price=product_price))
+            return redirect(url_for('laptop', image_name=file.filename, title=product_title,
+                                    description=product_description, price=product_price))
         elif product_type == "PC":
             return redirect(
-                url_for('pc',image_name=file.filename,title=product_title, description=product_description,
-                        price=product_price))
+                url_for('pc',image_name=file.filename, title=product_title,
+                                    description=product_description, price=product_price))
         elif product_type == "Phone":
             return redirect(
                 url_for('phone',image_name=file.filename,title=product_title, description=product_description,price=product_price))
@@ -78,7 +84,7 @@ def add_product():
             return redirect(
                 url_for('head_phones',image_name=file.filename, title=product_title, description=product_description,
                         price=product_price))
-    return render_template('addproduct.html', form=form,)
+    return render_template('addproduct.html', form=form)
 
 
 @app.route('/laptop')
@@ -87,9 +93,8 @@ def laptop():
     title = request.args.get('title')
     description = request.args.get('description')
     price = request.args.get('price')
-
-    return render_template('laptop.html', image_name=image_name, title=title, description=description, price=price)
-
+    return render_template('laptop.html', image_name=image_name, title=title, description=description, price=price,
+                           )
 
 @app.route('/PC', methods=['GET', 'POST'])
 def pc():
@@ -97,7 +102,8 @@ def pc():
     title = request.args.get('title')
     description = request.args.get('description')
     price = request.args.get('price')
-    return render_template('pc.html', image_name=image_name, title=title, description=description, price=price)
+    return render_template('pc.html', image_name=image_name, title=title, description=description, price=price,
+                           )
 
 
 @app.route('/Phone', methods=['GET', 'POST'])
@@ -171,4 +177,4 @@ def log_in_admin():
             return redirect('/log_in_for_admins')
         login_user(user, remember=form.remember_me.data)
         return redirect('/add_product')
-    return render_template('registeradmin.html', title='Увійти', form=form)
+    return render_template('registeradmin.html', title='Войти', form=form)

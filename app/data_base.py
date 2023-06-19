@@ -28,7 +28,7 @@ class Users(UserMixin, db.Model):
 
 class AdminUsers(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_name = db.Column(db.String(25), nullable=False, unique=True)
+    username = db.Column(db.String(25), nullable=False, unique=True)
     password_hash = db.Column(db.String(30), nullable=False)
 
     def __repr__(self):
