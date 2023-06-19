@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<center>
+<form method="post">
+    <h1>Email</h1>
+    {{ a.hidden_tag() }}
+    <p>
+        {{ a.email(size=32) }}<br>
+        {% for e in a.email.errors %}<span>{{ e }}</span>
+        {% endfor %}
+    </p>
+    <h3>Phone number</h3>
+        <p>
+            {{ a.phone(size=32) }}<br>
+            {% for e in a.phone.errors %}<span>{{ e }}</span>
+            {% endfor %}
+        </p>
+    <h3>Adressa</h3>
+        <p>
+            {{ a.adressa }}<br>
+            {% for e in a.adressa.errors %}<span>{{ e }}</span>
+            {% endfor %}
+        </p>
+    <h3>Dostavka</h3>
+    <p>
+        {{ a.dostavka }}<br>
+        {% for e in a.dostavka.errors %}<span>{{ e }}</span>
+        {% endfor %}
+    </p>
+    <h3>Submit</h3>
+    <p class="btn3">
+        {{ a.send }}<br>
+    </p>
+
+</form>
+</center>
+{% endblock %}
+

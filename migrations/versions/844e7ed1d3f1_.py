@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 2b9dbfc5943b
+Revision ID: 844e7ed1d3f1
 Revises: 
-Create Date: 2023-06-10 13:48:47.005476
+Create Date: 2023-06-18 19:32:36.327985
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '2b9dbfc5943b'
+revision = '844e7ed1d3f1'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -36,7 +36,6 @@ def upgrade():
     )
     with op.batch_alter_table('products', schema=None) as batch_op:
         batch_op.create_index(batch_op.f('ix_products_product_description'), ['product_description'], unique=False)
-        batch_op.create_index(batch_op.f('ix_products_product_image_name'), ['product_image_name'], unique=True)
         batch_op.create_index(batch_op.f('ix_products_product_title'), ['product_title'], unique=True)
         batch_op.create_index(batch_op.f('ix_products_product_type'), ['product_type'], unique=False)
 
@@ -53,6 +52,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('foreign_key', sa.Integer(), nullable=True),
     sa.Column('number_of_keyboard_buttons', sa.Integer(), nullable=True),
+    sa.Column('connection', sa.String(length=50), nullable=True),
     sa.Column('producing_country', sa.String(length=50), nullable=True),
     sa.Column('color', sa.String(length=30), nullable=True),
     sa.Column('brand', sa.String(length=50), nullable=True),
@@ -74,7 +74,6 @@ def upgrade():
     sa.Column('processor_specifications', sa.String(length=150), nullable=True),
     sa.Column('graphics_card_specifications', sa.String(length=250), nullable=True),
     sa.Column('ram_specifications', sa.String(length=200), nullable=True),
-    sa.Column('number_of_ram_slots', sa.Integer(), nullable=True),
     sa.Column('memory_capacity_specifications', sa.String(length=250), nullable=True),
     sa.Column('display_characteristics', sa.String(length=200), nullable=True),
     sa.Column('producing_country', sa.String(length=50), nullable=True),
@@ -110,8 +109,8 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     with op.batch_alter_table('orders', schema=None) as batch_op:
-        batch_op.create_index(batch_op.f('ix_orders_product_image_name'), ['product_image_name'], unique=True)
-        batch_op.create_index(batch_op.f('ix_orders_product_title'), ['product_title'], unique=True)
+        batch_op.create_index(batch_op.f('ix_orders_product_image_name'), ['product_image_name'], unique=False)
+        batch_op.create_index(batch_op.f('ix_orders_product_title'), ['product_title'], unique=False)
 
     op.create_table('pcs',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -126,7 +125,6 @@ def upgrade():
     sa.Column('cpu_cooling', sa.String(length=150), nullable=True),
     sa.Column('power_supply_specifications', sa.String(length=100), nullable=True),
     sa.Column('case_characteristics', sa.String(length=120), nullable=True),
-    sa.Column('producing_country', sa.String(length=50), nullable=True),
     sa.ForeignKeyConstraint(['foreign_key'], ['products.product_id'], ),
     sa.PrimaryKeyConstraint('id')
     )
@@ -137,8 +135,8 @@ def upgrade():
     sa.Column('color', sa.String(length=30), nullable=True),
     sa.Column('communication_standard_or_internet', sa.String(length=150), nullable=True),
     sa.Column('display_characteristics', sa.String(length=200), nullable=True),
-    sa.Column('SIM_card_characteristics', sa.String(length=100), nullable=True),
-    sa.Column('characteristics_memory_functions', sa.String(length=150), nullable=True),
+    sa.Column('sim_card_characteristics', sa.String(length=100), nullable=True),
+    sa.Column('characteristics_memory_functions', sa.String(length=250), nullable=True),
     sa.Column('operating_system', sa.String(length=60), nullable=True),
     sa.Column('characteristics_of_the_front_camera', sa.String(length=200), nullable=True),
     sa.Column('processor_specifications', sa.String(length=150), nullable=True),
@@ -190,7 +188,6 @@ def downgrade():
     with op.batch_alter_table('products', schema=None) as batch_op:
         batch_op.drop_index(batch_op.f('ix_products_product_type'))
         batch_op.drop_index(batch_op.f('ix_products_product_title'))
-        batch_op.drop_index(batch_op.f('ix_products_product_image_name'))
         batch_op.drop_index(batch_op.f('ix_products_product_description'))
 
     op.drop_table('products')

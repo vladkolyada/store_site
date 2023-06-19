@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+  <center>
+        <h1>Додати характеристики телефона</h1>
+        <form method="post" enctype="multipart/form-data" >
+            {{ form.hidden_tag() }}
+            <img src="/static/{{ image_name }}" width="512" height="512"><br>
+            <p>{{ product_title }}</p>
+            <p>{{ price }}</p>
+            <p>
+                {{ form.color.label }}<br>
+                {{ form.color(size=64) }}<br>
+            </p>
+            <p>
+                {{ form.brand.label }}<br>
+                {{ form.brand(size=64) }}<br>
+            </p>
+            <p>
+                {{ form.processor_specifications.label }}<br>
+                {{ form.processor_specifications(size=64) }}<br>
+            </p>
+            <p>
+                {{ form.communication_standard_or_internet.label }}<br>
+                {{ form.communication_standard_or_internet(size=64) }}<br>
+            </p>
+            <p>
+                {{ form.sim_card_characteristics.label }}<br>
+                {{ form.sim_card_characteristics(size=64) }}<br>
+            </p>
+            <p>
+                {{ form.characteristics_memory_functions.label }}<br>
+                {{ form.characteristics_memory_functions(size=64) }}<br>
+            </p>
+            <p>
+                {{ form.display_characteristics.label }}<br>
+                {{ form.display_characteristics(size=64) }}<br>
+            </p>
+            <p>
+                {{ form.operating_system.label }}<br>
+                {{ form.operating_system(size=64) }}<br>
+            </p>
+            <p>
+                {{ form.characteristics_of_the_front_camera.label }}<br>
+                {{ form.characteristics_of_the_front_camera(size=64) }}<br>
+            </p>
+            <p>
+                {{ form.characteristics_of_the_main_camera.label }}<br>
+                {{ form.characteristics_of_the_main_camera(size=64) }}<br>
+            </p>
+            <p>
+                {{ form.power_characteristics.label }}<br>
+                {{ form.power_characteristics(size=64) }}<br>
+            </p>
+            <p>
+                {{ form.connectors.label }}<br>
+                {{ form.connectors(size=64) }}<br>
+            </p>
+            <p>
+                {{ form.navigation.label }}<br>
+                {{ form.navigation(size=64) }}<br>
+            </p>
+            <p>
+                {{ form.dimensions.label }}<br>
+                {{ form.dimensions(size=64) }}<br>
+            </p>
+            <p>
+                {{ form.producing_country.label }}<br>
+                {{ form.producing_country(size=64) }}<br>
+            </p>
+            <p class="btn2">
+                {{ form.submit() }}
+            </p>
+        </form>
+    </center>
+{% endblock %}

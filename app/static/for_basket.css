@@ -14,3 +14,9 @@
             font-size: 30px;
             text-decoration: none;
         }
+
+.for_total_sum {
+    position: fixed;
+    top: 85%;
+    left: 49%;
+}

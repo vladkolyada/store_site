@@ -1,14 +1,49 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <style>
+    .btn {
+        background: linear-gradient(83.58deg, #CD3838 5.94%, #5FE122 92.74%);
+        border-radius: 5px;
+        color: white;
+        text-decoration: none;
+        border: 1px solid #000000;
+        width: 70px;
+        height: 30px;
+        font-family: 'Impact';
+        font-style: normal;
+        font-size: 20px;
+        line-height: 30px;
+        padding: 0.4em;
+        justify-content: center;
+        align-items: center;
+    }
+    @font-face {
+            font-family: caviar-dreams; /* Гарнитура шрифта */
+            src: url(/static/caviar-dreams.ttf); /* Путь к файлу со шрифтом */
+        }
+
+    .p_title {
+            font-family: caviar-dreams;
+            font-size: 30px;
+            text-decoration: none;
+        }
+    </style>
+
+
+
     <div class="BG">
         {% if basket %}
+        <h3 style="position: fixed; right: 5%; top: 5%; "> {{ a }} </h3>
             {% for order in basket %}
                 <h3 class="p_title"> <a href="/product_{{ p_type }}/{{ order.foreign_key }}" class="p_title">{{ order.product_title }}
-                </a> {{ order.product_price }} $ ({{ order.quantity }} шт.)<a class="btn" href="/delete/{{ order.foreign_key }}">Delete</a> </h3>
+                </a><img width="50" height="45" src="/static/{{ order.product_image_name }}"> {{ order.product_price }} $ ({{ order.quantity }} шт.)<a class="btn" href="/delete/{{ order.foreign_key }}">Delete</a> </h3>
             {% endfor %}
         {% else %}
             <h3 class="p_title"> Кошик пустий </h3>
         {% endif %}
+    <a href="/send_product" class="btn">Доставити</a>
+
     </div>
 {% endblock %}
+
