@@ -1,4 +1,3 @@
-
 from app.loader import app
 from flask import render_template, redirect
 from app.data_base import Products, Orders, db

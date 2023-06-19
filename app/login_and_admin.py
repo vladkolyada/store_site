@@ -392,7 +392,7 @@ def log_in_admin():
     if form.validate_on_submit():
         username = form.username.data
         password = form.password.data
-        user = AdminUsers.query.filter_by(username=username).first()
+        user = AdminUsers.query.filter_by(user_name=username).first()
         if user is None or not user.check_password(password):
             return redirect('/log_in_for_admins')
         login_user(user, remember=form.remember_me.data)
