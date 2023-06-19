@@ -41,7 +41,6 @@ def signup():
     return render_template('sign_up.html', form=form)
 
 
-@login_required
 @app.route('/add_product', methods=['GET', 'POST'])
 def add_product():
     form = AddProduct()
