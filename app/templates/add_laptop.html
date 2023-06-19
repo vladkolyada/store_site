@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+  <center>
+        <h1>Додати характеристики ноутбука</h1>
+        <form method="post" enctype="multipart/form-data" >
+            {{ form.hidden_tag() }}
+            <img src="/static/{{ image_name }}" width="512" height="512"><br>
+            <p>{{ product_title }}</p>
+            <p>{{ price }}</p>
+            <p>
+                {{ form.color.label }}<br>
+                {{ form.color(size=64) }}<br>
+            </p>
+            <p>
+                {{ form.brand.label }}<br>
+                {{ form.brand(size=64) }}<br>
+            </p>
+            <p>
+                {{ form.processor_specifications.label }}<br>
+                {{ form.processor_specifications(size=64) }}<br>
+            </p>
+            <p>
+                {{ form.graphics_card_specifications.label }}<br>
+                {{ form.graphics_card_specifications(size=64) }}<br>
+            </p>
+            <p>
+                {{ form.ram_specifications.label }}<br>
+                {{ form.ram_specifications(size=64) }}<br>
+            </p>
+            <p>
+                {{ form.memory_capacity_specifications.label }}<br>
+                {{ form.memory_capacity_specifications(size=64) }}<br>
+            </p>
+            <p>
+                {{ form.display_characteristics.label }}<br>
+                {{ form.display_characteristics(size=64) }}<br>
+            </p>
+            <p>
+                {{ form.producing_country.label }}<br>
+                {{ form.producing_country(size=64) }}<br>
+            </p>
+            <p class="btn2">
+                {{ form.submit() }}
+            </p>
+        </form>
+    </center>
+{% endblock %}

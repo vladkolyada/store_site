@@ -13,9 +13,9 @@
         {% if p_price == 0 %}
             <p class="p_title"> {{ p_price }} $ </p>
         {% else %}
-            <p class="p_title"> {{ p_price }} $ <a class="btn" href="/buy/{{ product.product_id }}/{{ quantity }}"> Купити </a> </p>
+            <p class="p_title"> {{ p_price }} $ <a class="btn" href="/buy/{{ product.product_id }}/{{ quantity }}/Phone"> Купити </a> </p>
         {% endif %}
-        <p class="p_title"> {{ quantity }} шт. <a class="btn" href="/add_quantity/phone"> + </a> <a class="btn" href="/remove_quantity"> - </a></p>
+        <p class="p_title"> {{ quantity }} шт. <a class="btn" href="/add_quantity/Phone"> + </a> <a class="btn" href="/remove_quantity/Phone"> - </a></p>
 
     </div>
     <hr>
