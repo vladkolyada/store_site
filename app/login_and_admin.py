@@ -1,15 +1,12 @@
 from flask import render_template, redirect, url_for, flash, request
-<<<<<<< HEAD
-from .forms import LogInAdmin, RegistrationForm, LoginUser, AddProduct,characterleptop,characterPc
-from flask_login import LoginManager, current_user, login_user, logout_user, login_required
-from app.data_base import AdminUsers, Users, db,Products,Laptops,Pcs,Phones,Tablet,Mouse,Keyboard
-=======
+
+
 from .forms import LogInAdmin, RegistrationForm, LoginUser, AddProduct, FormForAddingLaptop, FormForAddingPC, \
     FormForAddingPhone, FormForAddingTablet, FormForAddingMouse, FormForAddingKeyboard
 from flask_login import LoginManager, current_user, login_user, logout_user, login_required
-from app.data_base import AdminUsers, Users, db, Products, Laptops, Pcs, Phones, Tablet, Mouse, Keyboard
->>>>>>> 4af95ed6c3a72256ceb07d0d5c30d7b4c1e1900d
-from app.loader import app
+from .data_base import AdminUsers, Users, db, Products, Laptops, Pcs, Phones, Tablet, Mouse, Keyboard
+
+from .loader import app
 
 login = LoginManager(app)
 login.login_view = "log_in"
@@ -59,35 +56,21 @@ def add_product():
         product_title = request.form.get('product_title')
         product_description = request.form.get('product_description')
         product_price = request.form.get('product_price')
-<<<<<<< HEAD
-
-
 
         base = Products(product_image_name=file.filename, product_type=product_type, product_title=product_title,
                         product_description=product_description, product_price=product_price)
 
-
-=======
         base = Products(product_image_name=file.filename, product_type=product_type,
                         product_title=product_title, product_description=product_description,
                         product_price=product_price)
->>>>>>> 4af95ed6c3a72256ceb07d0d5c30d7b4c1e1900d
         db.session.add(base)
         db.session.commit()
 
         if product_type == "Laptop":
-<<<<<<< HEAD
             return redirect(url_for('laptop', image_name=file.filename, title=product_title,
                                     description=product_description, price=product_price))
         elif product_type == "PC":
-            return redirect(
-                url_for('pc',image_name=file.filename, title=product_title,
-=======
-            return redirect(url_for('laptop', image_name=file.filename, product_title=product_title,
-                                    description=product_description, price=product_price))
-        elif product_type == "PC":
             return redirect(url_for('pc', image_name=file.filename, product_title=product_title,
->>>>>>> 4af95ed6c3a72256ceb07d0d5c30d7b4c1e1900d
                                     description=product_description, price=product_price))
         elif product_type == "Phone":
             return redirect(url_for('phone', image_name=file.filename, product_title=product_title,
@@ -96,21 +79,17 @@ def add_product():
             return redirect(url_for('tablet', image_name=file.filename, product_title=product_title,
                                     description=product_description, price=product_price))
         elif product_type == "Mouse":
-<<<<<<< HEAD
-            return redirect(
-                url_for('mouse',image_name=file.filename,title=product_title, description=product_description,
-                        price=product_price))
+            return redirect(url_for('mouse', image_name=file.filename,title=product_title,
+                                    description=product_description, price=product_price))
         elif product_type == "Headphones":
             return redirect(
                 url_for('head_phones',image_name=file.filename, title=product_title, description=product_description,
                         price=product_price))
-=======
-            return redirect(url_for('mouse', image_name=file.filename, product_title=product_title,
-                                    description=product_description, price=product_price))
+
         elif product_type == "Keyboard":
             return redirect(url_for('keyboard', image_name=file.filename, product_title=product_title,
                                     description=product_description, price=product_price))
->>>>>>> 4af95ed6c3a72256ceb07d0d5c30d7b4c1e1900d
+
     return render_template('addproduct.html', form=form)
 
 
@@ -120,10 +99,7 @@ def laptop():
     image_name = request.args.get('image_name')
     product_title = request.args.get('product_title')
     price = request.args.get('price')
-<<<<<<< HEAD
-    return render_template('laptop.html', image_name=image_name, title=title, description=description, price=price,
-                           )
-=======
+
     product = Products.query.filter_by(product_title=product_title).first()
     if request.method == "POST":
         color = request.form.get('color')
@@ -149,7 +125,6 @@ def laptop():
                            product_title=product_title, price=price,
                            form=form)
 
->>>>>>> 4af95ed6c3a72256ceb07d0d5c30d7b4c1e1900d
 
 @app.route('/PC', methods=['GET', 'POST'])
 def pc():
@@ -157,10 +132,7 @@ def pc():
     image_name = request.args.get('image_name')
     product_title = request.args.get('product_title')
     price = request.args.get('price')
-<<<<<<< HEAD
-    return render_template('pc.html', image_name=image_name, title=title, description=description, price=price,
-                           )
-=======
+
     product = Products.query.filter_by(product_title=product_title).first()
     if request.method == "POST":
         color = request.form.get('color')
@@ -187,7 +159,6 @@ def pc():
                                 power_supply_specifications=power_supply_specifications,
                                 case_characteristics=case_characteristics))
     return render_template('add_pc.html', image_name=image_name, product_title=product_title, price=price, form=form)
->>>>>>> 4af95ed6c3a72256ceb07d0d5c30d7b4c1e1900d
 
 
 @app.route('/Phone', methods=['GET', 'POST'])

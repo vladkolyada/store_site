@@ -34,7 +34,6 @@ class RegistrationForm(FlaskForm):
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
 
-<<<<<<< HEAD
 class characterleptop(FlaskForm):
     color = StringField('Колір', validators=[DataRequired(), Email()])
     brand = StringField('Бренд', validators=[DataRequired(), Email()])
@@ -54,7 +53,6 @@ class characterPc(FlaskForm):
     cpu_cooling = StringField('Характеристики охолодження', validators=[DataRequired(), Email()])
     power_supply_specifications = StringField('Характеристики блока живлення', validators=[DataRequired(), Email()])
     case_characteristics = StringField('Характеристики корпуса', validators=[DataRequired(), Email()])
-=======
 
 
 class Otpavka(FlaskForm):
@@ -158,4 +156,3 @@ class FormForAddingKeyboard(FlaskForm):
     dimensions = StringField('Розміри')
     submit = SubmitField('Enter')
 
->>>>>>> 4af95ed6c3a72256ceb07d0d5c30d7b4c1e1900d
